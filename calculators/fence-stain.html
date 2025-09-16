@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fence Stain Calculator</title>
-  <link rel="stylesheet" href="../style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fence Stain Calculator</title>
+<link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <header>
-    <h1>Fence Stain Calculator</h1>
-  </header>
 
-  <main>
-    <div class="calculator">
-      <label>Fence Length (ft): <input id="length" type="number"></label><br>
-      <label>Fence Height (ft): <input id="height" type="number"></label><br>
-      <label>Number of Sides to Stain: <input id="sides" type="number" value="2"></label><br>
-      <label>Stain Coverage (sq ft per gallon): <input id="coverage" type="number" value="250"></label><br>
-      <button onclick="calculateFenceStain()">Calculate</button>
-      <p id="result"></p>
-    </div>
-  </main>
+<header>
+  <h1>Contractor Tools</h1>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="tile-waste.html">Tile</a>
+    <a href="fence-stain.html">Fence</a>
+    <a href="concrete.html">Concrete</a>
+    <a href="deck-board.html">Deck</a>
+    <a href="paint-coverage.html">Paint</a>
+  </nav>
+</header>
 
-  <footer>
-    <p>&copy; 2025 Contractor Tools</p>
-  </footer>
+<main>
+  <div class="calculator">
+    <h2>Fence Stain Calculator</h2>
 
-  <script src="../js/fence-stain.js"></script>
+    <label>Fence Length (ft): <input id="length" type="number"></label>
+    <label>Fence Height (ft): <input id="height" type="number"></label>
+    <label>Coats: <input id="coats" type="number" value="1"></label>
+
+    <button onclick="calculateFence()">Calculate</button>
+
+    <div id="result"></div>
+    <div id="materials"></div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 Contractor Tools</p>
+</footer>
+
+<script src="../js/fence-stain.js"></script>
 </body>
 </html>
