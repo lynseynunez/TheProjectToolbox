@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deck Board Calculator</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1>Deck Board Calculator</h1>
+  </header>
+
+  <main>
+    <div class="calculator">
+      <label>Deck Length (ft): <input id="length" type="number"></label>
+      <label>Deck Width (ft): <input id="width" type="number"></label>
+      <label>Board Width (in): <input id="boardWidth" type="number"></label>
+      <label>Board Length (ft): <input id="boardLength" type="number"></label>
+      <label>Spacing between boards (in): <input id="spacing" type="number" value="0.25"></label>
+      <button onclick="calculateDeck()">Calculate</button>
+      <p id="result"></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Contractor Tools</p>
+  </footer>
+
+  <script src="../js/deck-board.js"></script>
+</body>
+</html>
