@@ -1,55 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contractor Tools</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+---
+layout: default
+---
 
-<header>
-  <a href="index.html">
-    <img src="images/logo.png" alt="TheProjectToolbox" class="logo">
-  </a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="calculators/tile-waste.html">Tile</a>
-    <a href="calculators/fence-stain.html">Fence</a>
-    <a href="calculators/concrete.html">Concrete</a>
-    <a href="calculators/deck-board.html">Deck</a>
-    <a href="calculators/paint-coverage.html">Paint</a>
-  </nav>
-</header>
+{% include header.html %}
 
 <main>
-  <div class="card-container">
-    <a href="calculators/tile-waste.html" class="card">
-      <h2>Tile Waste Calculator</h2>
-      <p>Calculate how many tiles you need including waste.</p>
-    </a>
-    <a href="calculators/fence-stain.html" class="card">
-      <h2>Fence Stain Calculator</h2>
-      <p>Calculate gallons of stain needed for your fence project.</p>
-    </a>
-    <a href="calculators/concrete.html" class="card">
-      <h2>Concrete Calculator</h2>
-      <p>Estimate the amount of concrete needed for your project.</p>
-    </a>
-    <a href="calculators/deck-board.html" class="card">
-      <h2>Deck Board Calculator</h2>
-      <p>Calculate how many boards and screws you need for your deck.</p>
-    </a>
-    <a href="calculators/paint-coverage.html" class="card">
-      <h2>Paint Coverage Calculator</h2>
-      <p>Determine how much paint you need for your room or wall project.</p>
-    </a>
-  </div>
+  <select id="tradeFilter" onchange="filterCards()">
+    <option value="all">All Trades</option>
+    <option value="flooring">Flooring & Tiling</option>
+    <option value="painting">Painting & Finishing</option>
+    <option value="concrete">Concrete & Masonry</option>
+    <option value="deck">Decks & Outdoor</option>
+  </select>
+
+  <section data-trade="flooring">
+    <h2>Flooring & Tiling</h2>
+    <div class="card-container">
+      <a href="calculators/tile-waste.html" class="card" data-trade="flooring">
+        <h3>Tile Waste Calculator</h3>
+      </a>
+    </div>
+  </section>
+
+  <section data-trade="painting">
+    <h2>Painting & Finishing</h2>
+    <div class="card-container">
+      <a href="calculators/paint-coverage.html" class="card" data-trade="painting">
+        <h3>Paint Coverage Calculator</h3>
+      </a>
+      <a href="calculators/fence-stain.html" class="card" data-trade="painting">
+        <h3>Fence Stain Calculator</h3>
+      </a>
+    </div>
+  </section>
+
+  <section data-trade="concrete">
+    <h2>Concrete & Masonry</h2>
+    <div class="card-container">
+      <a href="calculators/concrete.html" class="card" data-trade="concrete">
+        <h3>Concrete Calculator</h3>
+      </a>
+    </div>
+  </section>
+
+  <section data-trade="deck">
+    <h2>Decks & Outdoor Projects</h2>
+    <div class="card-container">
+      <a href="calculators/deck-board.html" class="card" data-trade="deck">
+        <h3>Deck Board Calculator</h3>
+      </a>
+    </div>
+  </section>
 </main>
 
-<footer>
-  <p>&copy; 2025 TheProjectToolbox</p>
-</footer>
+{% include footer.html %}
 
-</body>
-</html>
+<script>
+function filterCards() {
+  const filter = document.getElementById("tradeFilter").value;
+  const sections = document.querySelectorAll("section");
+
+  sections.forEach(section => {
+    if (filter === "all" || section.getAttribute("data-trade") === filter) {
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  });
+}
+</script>
