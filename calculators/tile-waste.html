@@ -1,65 +1,18 @@
----
-layout: default
----
-
-{% include header.html %}
-
-<main>
-  <h1>Tile Waste Calculator</h1>
-  <form id="tileForm">
-    <label>Room Length (ft): <input type="number" id="length" required></label>
-    <label>Room Width (ft): <input type="number" id="width" required></label>
-    <label>Tile Size (sq ft per tile): <input type="number" id="tileSize" required></label>
-    <label>Waste Percentage (%): <input type="number" id="waste" value="10"></label>
-  </form>
-
-  <div id="result"></div>
-  <div id="toolList"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tile Waste Calculator</title>
+<link href="/path-to-your-tailwind.css" rel="stylesheet">
+</head>
+<body class="bg-white font-sans">
+<header class="px-6 py-4 border-b border-gray-200">
+  <a href="/" class="text-blue-600 font-bold">← Home</a>
+</header>
+<main class="max-w-3xl mx-auto p-6 text-center">
+  <h1 class="text-2xl font-bold mb-4">Tile Waste Calculator</h1>
+  <p>This calculator page is under construction.</p>
 </main>
-
-{% include footer.html %}
-
-<script>
-const lengthInput = document.getElementById('length');
-const widthInput = document.getElementById('width');
-const tileSizeInput = document.getElementById('tileSize');
-const wasteInput = document.getElementById('waste');
-
-function updateTileCalculator() {
-  const length = parseFloat(lengthInput.value);
-  const width = parseFloat(widthInput.value);
-  const tileSize = parseFloat(tileSizeInput.value);
-  const waste = parseFloat(wasteInput.value)/100;
-
-  if (!length || !width || !tileSize) {
-    document.getElementById('result').innerHTML = '';
-    document.getElementById('toolList').innerHTML = '';
-    return;
-  }
-
-  const area = length * width;
-  const tilesNeeded = Math.ceil((area / tileSize) * (1 + waste));
-
-  document.getElementById('result').innerHTML = `<p>You need <strong>${tilesNeeded}</strong> tiles (including ${waste*100}% waste).</p>`;
-
-  const tools = [
-    {name: 'Tile Cutter', url: 'https://example.com/tile-cutter'},
-    {name: 'Notched Trowel', url: 'https://example.com/trowel'},
-    {name: 'Tile Spacers', url: 'https://example.com/spacers'},
-    {name: 'Level', url: 'https://example.com/level'}
-  ];
-
-  let toolHtml = '<h3>Suggested Tools & Materials:</h3><ul>';
-  tools.forEach(tool => {
-    toolHtml += `<li><a href="${tool.url}" target="_blank">${tool.name}</a></li>`;
-  });
-  toolHtml += '</ul>';
-
-  document.getElementById('toolList').innerHTML = toolHtml;
-}
-
-// Listen to input changes
-[lengthInput, widthInput, tileSizeInput, wasteInput].forEach(input => {
-  input.addEventListener('input', updateTileCalculator);
-});
-</script>
+</body>
+</html>
