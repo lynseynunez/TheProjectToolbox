@@ -8,24 +8,22 @@ function calculatePaint() {
 
   if (!length || !width || !height) {
     document.getElementById("result").innerText = "Please enter all values.";
+    document.getElementById("materials").innerHTML = "";
     return;
   }
 
-  let wallArea = 2 * height * (length + width);
-  let doorWindowArea = doors * 20;
-  let totalArea = wallArea - doorWindowArea;
-  let gallonsNeeded = (totalArea * coats) / coverage;
-  let totalGallons = Math.ceil(gallonsNeeded * 1.1);
+  let wallArea = 2 * height * (length + width) - doors * 20;
+  let gallonsNeeded = Math.ceil((wallArea * coats) / coverage);
 
-  document.getElementById("result").innerText =
-    `You need approximately ${totalGallons} gallons of paint (including 10% extra).`;
+  document.getElementById("result").innerText = 
+    `You need approximately ${gallonsNeeded} gallons of paint.`;
 
   document.getElementById("materials").innerHTML = `
     <h3>Materials Needed:</h3>
     <ul>
-      <li>${totalGallons} gallon(s) of paint <a href="https://example.com/paint-affiliate" target="_blank" class="affiliate-button">Buy Now</a></li>
-      <li>Paint brushes <a href="https://example.com/brush-affiliate" target="_blank" class="affiliate-button">Buy Now</a></li>
-      <li>Roller tray <a href="https://example.com/roller-affiliate" target="_blank" class="affiliate-button">Buy Now</a></li>
+      <li>${gallonsNeeded} Gallons of Paint<br><a href="https://example.com/paint-affiliate" target="_blank" class="affiliate-button">Buy Paint</a></li>
+      <li>Paint Rollers<br><a href="https://example.com/roller-affiliate" target="_blank" class="affiliate-button">Buy Rollers</a></li>
+      <li>Painter's Tape<br><a href="https://example.com/tape-affiliate" target="_blank" class="affiliate-button">Buy Tape</a></li>
     </ul>
   `;
 }
