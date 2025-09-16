@@ -14,5 +14,14 @@ function calculateConcrete() {
   let totalVolume = volumeCubicYards * (1 + waste / 100);
 
   document.getElementById("result").innerText =
-    `You need approximately ${totalVolume.toFixed(2)} cubic yards of concrete (including ${waste}% extra for waste).`;
+    `You need approximately ${totalVolume.toFixed(2)} cubic yards of concrete (including ${waste}% extra).`;
+
+  document.getElementById("materials").innerHTML = `
+    <h3>Materials Needed:</h3>
+    <ul>
+      <li>${totalVolume.toFixed(2)} cubic yards of concrete <a href="https://example.com/concrete-affiliate" target="_blank" class="affiliate-button">Buy Now</a></li>
+      <li>Concrete mixer rental <a href="https://example.com/mixer-affiliate" target="_blank" class="affiliate-button">Rent Now</a></li>
+      <li>Trowel <a href="https://example.com/trowel-affiliate" target="_blank" class="affiliate-button">Buy Now</a></li>
+    </ul>
+  `;
 }
