@@ -1,240 +1,146 @@
-/* ----------------------
-   General Site Styling
----------------------- */
+/* =======================
+   General Page Styles
+   ======================= */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Work Sans', 'Noto Sans', sans-serif;
+  background-color: #ffffff;
+  color: #111618;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
-  color: #333;
 }
 
-h1, h2, h3 {
-  margin: 0.5rem 0;
+/* =======================
+   Headings
+   ======================= */
+h1, h2, h3, h4, h5, h6 {
+  color: #111618;
+  margin: 0;
 }
 
-/* Hide GitHub/Jekyll auto-generated H1 */
-.markdown-body > h1:first-of-type {
-  display: none;
+h2 {
+  font-weight: 700;
 }
 
-/* Header styling */
-.site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  width: 100%;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.site-header .logo {
-  max-height: 60px;
-}
-
-.site-header .main-nav {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.site-header .main-nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  transition: background 0.2s, color 0.2s;
-}
-
-.site-header .main-nav a:hover {
-  background-color: #5271FF;
-  color: #fff;
-}
-
-/* Responsive for smaller screens */
-@media (max-width: 768px) {
-  .site-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .site-header .main-nav {
-    width: 100%;
-    margin-top: 0.5rem;
-    flex-direction: column;
-  }
-
-  .site-header .main-nav a {
-    padding: 0.25rem 0;
-  }
-}
-
-
-
-/* Responsive header */
-@media (max-width: 768px) {
-  .site-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .site-header .main-nav {
-    margin-top: 0.5rem;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .site-header .main-nav a {
-    padding: 0.25rem 0;
-  }
-}
-
-/* ----------------------
-   Calculator Bubbles
----------------------- */
-.calculator-section {
-  text-align: center;
-  margin: 2rem 1rem;
-}
-
-.calculator-bubbles {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
-.bubble {
-  display: inline-block;
-  padding: 1.2rem 2rem;
-  background: linear-gradient(135deg, #5271FF, #9C63FF);
-  color: #fff;
-  border-radius: 50px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.bubble:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-}
-
-/* ----------------------
-   Trade Filter
----------------------- */
-#tradeFilter {
-  margin: 1rem 2rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-/* ----------------------
-   Calculator Cards/Sections
----------------------- */
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.card {
-  background: #fff;
-  padding: 1rem;
-  border-radius: 10px;
-  flex: 1 1 200px;
-  text-align: center;
-  text-decoration: none;
-  color: #333;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
-
-/* ----------------------
-   Forms and Results
----------------------- */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 400px;
-  margin: 1rem auto;
-}
-
-form label {
-  display: flex;
-  flex-direction: column;
-  font-weight: 600;
-}
-
-form input {
-  padding: 0.5rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  margin-top: 0.25rem;
-}
-
-form button {
-  padding: 0.75rem 1.5rem;
-  background: #5271FF;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-form button:hover {
-  background: #9C63FF;
-}
-
-#result, #toolList {
-  max-width: 600px;
-  margin: 1rem auto;
-  text-align: center;
-}
-
-/* ----------------------
-   Footer
----------------------- */
-.site-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: #f1f1f1;
+/* =======================
+   Calculator Section
+   ======================= */
+#calculators {
   margin-top: 2rem;
-  font-size: 0.9rem;
-  color: #555;
+  margin-bottom: 2rem;
 }
 
-.site-footer .footer-links {
-  margin-top: 0.5rem;
-}
-
-.site-footer .footer-links a {
+.calculator-bubble a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   text-decoration: none;
-  color: #5271FF;
-  margin: 0 0.25rem;
-  transition: color 0.2s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.site-footer .footer-links a:hover {
-  color: #9C63FF;
+.calculator-bubble a div {
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calculator-bubble a:hover div {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-bubble p {
+  text-align: center;
+  font-weight: 500;
+  color: #111618;
+}
+
+/* =======================
+   Buttons
+   ======================= */
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Primary button */
+.btn-primary {
+  background-color: #1193d4;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+/* =======================
+   Card / Tools & Materials
+   ======================= */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card img, .card div {
+  border-radius: 0.5rem;
+}
+
+.card button {
+  background-color: #f0f3f4;
+  color: #111618;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  width: fit-content;
+}
+
+/* =======================
+   Footer
+   ======================= */
+footer {
+  background-color: #ffffff;
+  padding: 2rem 1rem;
+  color: #617c89;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+footer a {
+  color: #617c89;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* =======================
+   Responsive Typography
+   ======================= */
+@media (min-width: 640px) {
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 2.25rem;
+  }
 }
