@@ -1,48 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Concrete Calculator</title>
-<link rel="stylesheet" href="../style.css">
-</head>
-<body>
+---
+layout: default
+---
 
-<header>
-  <a href="../index.html">
-    <img src="../images/logo.png" alt="TheProjectToolbox" class="logo">
-  </a>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="tile-waste.html">Tile</a>
-    <a href="fence-stain.html">Fence</a>
-    <a href="concrete.html">Concrete</a>
-    <a href="deck-board.html">Deck</a>
-    <a href="paint-coverage.html">Paint</a>
-  </nav>
-</header>
-
+{% include header.html %}
 
 <main>
-  <div class="calculator">
-    <h2>Concrete Calculator</h2>
+  <h1>Concrete Calculator</h1>
+  <form id="concreteForm">
+    <label>Length (ft): <input type="number" id="length" required></label>
+    <label>Width (ft): <input type="number" id="width" required></label>
+    <label>Depth (inches): <input type="number" id="depth" required></label>
+    <button type="submit">Calculate</button>
+  </form>
 
-    <label>Length (ft): <input id="length" type="number"></label>
-    <label>Width (ft): <input id="width" type="number"></label>
-    <label>Depth (in): <input id="depth" type="number"></label>
-    <label>Waste %: <input id="waste" type="number" value="0"></label>
-
-    <button onclick="calculateConcrete()">Calculate</button>
-
-    <div id="result"></div>
-    <div id="materials"></div>
-  </div>
+  <div id="result"></div>
+  <div id="toolList"></div>
 </main>
 
-<footer>
-  <p>&copy; 2025 TheProjectToolbox</p>
-</footer>
+{% include footer.html %}
 
-<script src="../js/concrete.js"></script>
-</body>
-</html>
+<script>
+document.getElementById('concreteForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const length = parseFloat(document.getElementById('length').value);
+  const width = parseFloat(document.getElementById('width').value);
+  const depthInches = parseFloat(document.getElementById('depth').value);
+  const depthFeet = depthInches / 12;
+
+  const cubicFeet = length * width * depthFeet;
+  const cubicYards = (cubicFeet / 27).toFixed(2);
+
+  document.getElementById('result').innerHTML = `<p>You need <strong>${cubicYards}</strong> cubic yards of concrete.</p>`;
+
+  const tools = [
+    {name: 'Concrete Mixer', url: 'https://example.com/mixer'},
+    {name: 'Wheelbarrow', url: 'https://example.com/wheelbarrow'},
+    {name: 'Trowel', url: 'https://example.com/trowel'},
+    {name: 'Level', url: 'https://example.com/level'}
+  ];
+
+  let toolHtml = '<h3>Suggested Tools & Materials:</h3><ul>';
+  tools.forEach(tool => {
+    toolHtml += `<li><a href="${tool.url}" target="_blank">${tool.name}</a></li>`;
+  });
+  toolHtml += '</ul>';
+
+  document.getElementById('toolList').innerHTML = toolHtml;
+});
+</script>
