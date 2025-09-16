@@ -186,9 +186,26 @@ form button:hover {
 /* ----------------------
    Footer
 ---------------------- */
-footer {
+.site-footer {
   text-align: center;
-  padding: 1rem 0;
+  padding: 2rem 1rem;
   background: #f1f1f1;
   margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.site-footer .footer-links {
+  margin-top: 0.5rem;
+}
+
+.site-footer .footer-links a {
+  text-decoration: none;
+  color: #5271FF;
+  margin: 0 0.25rem;
+  transition: color 0.2s;
+}
+
+.site-footer .footer-links a:hover {
+  color: #9C63FF;
 }
