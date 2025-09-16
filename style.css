@@ -64,3 +64,27 @@ footer {
   color: white;
   margin-top: 2rem;
 }
+
+.calculator label {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+.calculator input {
+  margin-left: 0.5rem;
+  width: 80px;
+}
+
+.calculator button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #5271ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.calculator button:hover {
+  background: #4059d1;
+}
