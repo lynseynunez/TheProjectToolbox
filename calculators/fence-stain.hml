@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fence Stain Calculator</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1>Fence Stain Calculator</h1>
+  </header>
+
+  <main>
+    <div class="calculator">
+      <label>Fence Length (ft): <input id="length" type="number"></label><br>
+      <label>Fence Height (ft): <input id="height" type="number"></label><br>
+      <label>Number of Sides to Stain: <input id="sides" type="number" value="2"></label><br>
+      <label>Stain Coverage (sq ft per gallon): <input id="coverage" type="number" value="250"></label><br>
+      <button onclick="calculateFenceStain()">Calculate</button>
+      <p id="result"></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Contractor Tools</p>
+  </footer>
+
+  <script src="../js/fence-stain.js"></script>
+</body>
+</html>
