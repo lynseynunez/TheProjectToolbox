@@ -1,51 +1,18 @@
----
-layout: default
----
-
-{% include header.html %}
-
-<main>
-  <h1>Concrete Calculator</h1>
-  <form id="concreteForm">
-    <label>Length (ft): <input type="number" id="length" required></label>
-    <label>Width (ft): <input type="number" id="width" required></label>
-    <label>Depth (inches): <input type="number" id="depth" required></label>
-    <button type="submit">Calculate</button>
-  </form>
-
-  <div id="result"></div>
-  <div id="toolList"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concrete Calculator</title>
+<link href="/path-to-your-tailwind.css" rel="stylesheet">
+</head>
+<body class="bg-white font-sans">
+<header class="px-6 py-4 border-b border-gray-200">
+  <a href="/" class="text-blue-600 font-bold">← Home</a>
+</header>
+<main class="max-w-3xl mx-auto p-6 text-center">
+  <h1 class="text-2xl font-bold mb-4">Concrete Calculator</h1>
+  <p>This calculator page is under construction.</p>
 </main>
-
-{% include footer.html %}
-
-<script>
-document.getElementById('concreteForm').addEventListener('submit', function(e){
-  e.preventDefault();
-
-  const length = parseFloat(document.getElementById('length').value);
-  const width = parseFloat(document.getElementById('width').value);
-  const depthInches = parseFloat(document.getElementById('depth').value);
-  const depthFeet = depthInches / 12;
-
-  const cubicFeet = length * width * depthFeet;
-  const cubicYards = (cubicFeet / 27).toFixed(2);
-
-  document.getElementById('result').innerHTML = `<p>You need <strong>${cubicYards}</strong> cubic yards of concrete.</p>`;
-
-  const tools = [
-    {name: 'Concrete Mixer', url: 'https://example.com/mixer'},
-    {name: 'Wheelbarrow', url: 'https://example.com/wheelbarrow'},
-    {name: 'Trowel', url: 'https://example.com/trowel'},
-    {name: 'Level', url: 'https://example.com/level'}
-  ];
-
-  let toolHtml = '<h3>Suggested Tools & Materials:</h3><ul>';
-  tools.forEach(tool => {
-    toolHtml += `<li><a href="${tool.url}" target="_blank">${tool.name}</a></li>`;
-  });
-  toolHtml += '</ul>';
-
-  document.getElementById('toolList').innerHTML = toolHtml;
-});
-</script>
+</body>
+</html>
