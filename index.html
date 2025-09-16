@@ -1,227 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TheProjectToolbox</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-  <link
-    rel="stylesheet"
-    as="style"
-    onload="this.rel='stylesheet'"
-    href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Work+Sans:wght@400;500;700;900"
-  />
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-</head>
-<body class="bg-white font-sans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TheProjectToolbox</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans:wght@400;500;700;900&amp;family=Work+Sans:wght@400;500;700;900"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body class="bg-white font-sans">
+    <div class="relative flex flex-col min-h-screen overflow-x-hidden">
+      <!-- Header -->
+      <header class="flex items-center justify-between border-b border-gray-200 px-10 py-3">
+        <div class="flex items-center gap-4 text-gray-900">
+          <img src="/TheProjectToolbox/images/logo.png" alt="TheProjectToolbox Logo" class="h-12 w-auto" />
+        </div>
+        <div class="flex flex-1 justify-end gap-8 items-center">
+          <nav class="flex gap-6 text-gray-900 text-sm font-medium">
+            <a href="/TheProjectToolbox/">Home</a>
+            <a href="/TheProjectToolbox/calculators/deck-board.html">Decking</a>
+            <a href="/TheProjectToolbox/calculators/flooring.html">Flooring</a>
+            <a href="/TheProjectToolbox/calculators/painting.html">Painting</a>
+            <a href="/TheProjectToolbox/calculators/tiling.html">Tiling</a>
+            <a href="/TheProjectToolbox/calculators/drywall.html">Drywall</a>
+          </nav>
+          <a href="#calculators" class="bg-blue-600 text-white font-bold px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+            Get Started
+          </a>
+        </div>
+      </header>
 
-  <!-- Header -->
-  <header class="flex items-center justify-between border-b border-gray-200 px-10 py-3">
-    <div class="flex items-center gap-4 text-gray-900">
-      <img src="/images/logo.png" alt="TheProjectToolbox Logo" class="h-12 w-auto" />
-      <h1 class="text-xl font-bold">TheProjectToolbox</h1>
+      <!-- Hero Section -->
+      <section class="relative flex items-center justify-center bg-cover bg-center min-h-[480px]" style='background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url("/TheProjectToolbox/images/hero.jpg");'>
+        <div class="text-center text-white px-6">
+          <h1 class="text-4xl font-black leading-tight mb-4">Your Project, Simplified</h1>
+          <p class="text-base md:text-lg mb-6">Quickly estimate materials and tools for any construction, renovation, or DIY task.</p>
+          <a href="#calculators" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-bold transition">Get Started</a>
+        </div>
+      </section>
+
+      <!-- Intro Text -->
+      <section class="max-w-5xl mx-auto px-6 py-10 text-center">
+        <h2 class="text-2xl font-bold mb-4">Welcome to TheProjectToolbox</h2>
+        <p class="text-gray-800">TheProjectToolbox is your go-to resource for accurate material estimates and tool recommendations. Whether you're a seasoned contractor or a DIY enthusiast, our calculators ensure you have everything you need for a successful project.</p>
+      </section>
+
+      <!-- Trade Filter -->
+      <section class="max-w-sm mx-auto px-6 py-4">
+        <label class="flex flex-col">
+          <select id="tradeFilter" class="form-input border border-gray-300 rounded-lg p-3">
+            <option value="all">Select Your Trade</option>
+            <option value="deck">Decks & Outdoor</option>
+            <option value="flooring">Flooring & Tiling</option>
+            <option value="painting">Painting & Finishing</option>
+            <option value="concrete">Concrete & Masonry</option>
+          </select>
+        </label>
+      </section>
+
+      <!-- Calculator Grid -->
+      <section id="calculators" class="max-w-5xl mx-auto px-6 py-8">
+        <h2 class="text-2xl font-bold mb-4">Popular Calculators</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="calculator-bubble" data-trade="deck">
+            <a href="/TheProjectToolbox/calculators/deck-board.html" class="flex flex-col gap-2">
+              <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/decking.jpg");'></div>
+              <p class="text-gray-900 font-medium text-center">Deck Board Calculator</p>
+            </a>
+          </div>
+          <div class="calculator-bubble" data-trade="deck">
+            <a href="/TheProjectToolbox/calculators/deck-post.html" class="flex flex-col gap-2">
+              <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/deck-post.jpg");'></div>
+              <p class="text-gray-900 font-medium text-center">Deck Post Calculator</p>
+            </a>
+          </div>
+          <div class="calculator-bubble" data-trade="deck">
+            <a href="/TheProjectToolbox/calculators/railing.html" class="flex flex-col gap-2">
+              <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/railing.jpg");'></div>
+              <p class="text-gray-900 font-medium text-center">Railing Calculator</p>
+            </a>
+          </div>
+          <div class="calculator-bubble" data-trade="deck">
+            <a href="/TheProjectToolbox/calculators/stairs.html" class="flex flex-col gap-2">
+              <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/stairs.jpg");'></div>
+              <p class="text-gray-900 font-medium text-center">Stairs Calculator</p>
+            </a>
+          </div>
+          <div class="calculator-bubble" data-trade="flooring">
+            <a href="/TheProjectToolbox/calculators/flooring.html" class="flex flex-col gap-2">
+              <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/flooring.jpg");'></div>
+              <p class="text-gray-900 font-medium text-center">Flooring Calculator</p>
+            </a>
+          </div>
+          <div class="calculator-bubble" data-trade="flooring">
+            <a href="/TheProjectToolbox/calculators/tiling.html" class="flex flex-col gap-2">
+              <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/tiling.jpg");'></div>
+              <p class="text-gray-900 font-medium text-center">Tiling Calculator</p>
+            </a>
+          </div>
+          <div class="calculator-bubble" data-trade="painting">
+            <a href="/TheProjectToolbox/calculators/painting.html" class="flex flex-col gap-2">
+              <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/painting.jpg");'></div>
+              <p class="text-gray-900 font-medium text-center">Painting Calculator</p>
+            </a>
+          </div>
+          <div class="calculator-bubble" data-trade="drywall">
+            <a href="/TheProjectToolbox/calculators/drywall.html" class="flex flex-col gap-2">
+              <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/drywall.jpg");'></div>
+              <p class="text-gray-900 font-medium text-center">Drywall Calculator</p>
+            </a>
+          </div>
+          <!-- Add remaining calculators here with correct local images -->
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-gray-100 mt-auto py-8">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+          <div class="flex flex-wrap justify-center gap-4 mb-4">
+            <a href="/TheProjectToolbox/" class="text-gray-600 hover:text-gray-900">Home</a>
+            <a href="/TheProjectToolbox/calculators/deck-board.html" class="text-gray-600 hover:text-gray-900">Decking</a>
+            <a href="/TheProjectToolbox/calculators/flooring.html" class="text-gray-600 hover:text-gray-900">Flooring</a>
+            <a href="/TheProjectToolbox/calculators/painting.html" class="text-gray-600 hover:text-gray-900">Painting</a>
+            <a href="/TheProjectToolbox/calculators/tiling.html" class="text-gray-600 hover:text-gray-900">Tiling</a>
+            <a href="/TheProjectToolbox/calculators/drywall.html" class="text-gray-600 hover:text-gray-900">Drywall</a>
+          </div>
+          <p class="text-gray-500 text-sm">© 2025 TheProjectToolbox. All rights reserved.</p>
+          <p class="text-gray-500 text-sm mt-2">All calculations are estimates only. Always verify materials and measurements before purchasing.</p>
+        </div>
+      </footer>
     </div>
-    <nav class="flex gap-6 text-gray-900 text-sm font-medium">
-      <a href="/TheProjectToolbox/">Home</a>
-      <a href="#calculators">Calculators</a>
-      <a href="/TheProjectToolbox/projects.html">Projects</a>
-      <a href="/TheProjectToolbox/resources.html">Resources</a>
-    </nav>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="relative flex items-center justify-center bg-cover bg-center min-h-[480px]" style='background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url("/images/hero.jpg");'>
-    <div class="text-center text-white px-6">
-      <h1 class="text-4xl font-black leading-tight mb-4">Your Complete Project Toolbox</h1>
-      <p class="text-base md:text-lg mb-6">Quick, accurate, and modern calculators for all your home projects.</p>
-      <a href="#calculators" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-bold transition">Explore Calculators</a>
-    </div>
-  </section>
-
-  <!-- Calculators Section -->
-  <section id="calculators" class="max-w-6xl mx-auto px-6 py-16">
-    <h2 class="text-3xl font-bold text-gray-900 mb-10 text-center">Calculators</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-      <a href="/TheProjectToolbox/calculators/deck-board.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/decking.jpg" alt="Deck Board Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Deck Board Calculator</h3>
-          <p class="text-gray-600 text-sm">Estimate deck boards and materials for your next deck project.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/deck-post.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/deck-posts.jpg" alt="Deck Post Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Deck Post Calculator</h3>
-          <p class="text-gray-600 text-sm">Calculate the number and size of deck posts needed for your deck.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/railing.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/railing.jpg" alt="Railing Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Railing Calculator</h3>
-          <p class="text-gray-600 text-sm">Estimate railing materials for decks, stairs, or balconies.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/stairs.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/stairs.jpg" alt="Stairs Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Stairs Calculator</h3>
-          <p class="text-gray-600 text-sm">Plan your deck or stairway steps and materials efficiently.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/tile-waste.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/tiles.jpg" alt="Tile Waste Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Tile Waste Calculator</h3>
-          <p class="text-gray-600 text-sm">Estimate tile quantity including waste for flooring or walls.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/drywall.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/drywall.jpg" alt="Drywall Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Drywall Calculator</h3>
-          <p class="text-gray-600 text-sm">Quickly calculate drywall sheets, screws, and other materials.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/paint.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/paint.jpg" alt="Paint Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Paint Calculator</h3>
-          <p class="text-gray-600 text-sm">Estimate paint required for walls, ceilings, and trim.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/flooring.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/flooring.jpg" alt="Flooring Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Flooring Calculator</h3>
-          <p class="text-gray-600 text-sm">Calculate square footage, planks, and waste for floors.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/concrete.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/concrete.jpg" alt="Concrete Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Concrete Calculator</h3>
-          <p class="text-gray-600 text-sm">Estimate concrete volume for slabs, footings, and patios.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/pavers.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/pavers.jpg" alt="Pavers Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Pavers Calculator</h3>
-          <p class="text-gray-600 text-sm">Estimate quantity and pattern layout for paving stones.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/insulation.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/insulation.jpg" alt="Insulation Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Insulation Calculator</h3>
-          <p class="text-gray-600 text-sm">Estimate insulation materials for walls, floors, and attics.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/roofing.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/roofing.jpg" alt="Roofing Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Roofing Calculator</h3>
-          <p class="text-gray-600 text-sm">Estimate shingles, underlayment, and roof area accurately.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/siding.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/siding.jpg" alt="Siding Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Siding Calculator</h3>
-          <p class="text-gray-600 text-sm">Calculate siding panels and coverage for walls.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/fencing.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/fencing.jpg" alt="Fencing Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Fencing Calculator</h3>
-          <p class="text-gray-600 text-sm">Estimate posts, panels, and materials for fence projects.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/deck-stain.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/stain.jpg" alt="Deck Stain Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Deck Stain Calculator</h3>
-          <p class="text-gray-600 text-sm">Estimate deck stain or sealer for your project.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/lighting.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/lighting.jpg" alt="Lighting Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Lighting Calculator</h3>
-          <p class="text-gray-600 text-sm">Estimate lighting placement and materials for projects.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/plumbing.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/plumbing.jpg" alt="Plumbing Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Plumbing Calculator</h3>
-          <p class="text-gray-600 text-sm">Estimate pipes, fittings, and materials for plumbing projects.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/electrical.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/electrical.jpg" alt="Electrical Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Electrical Calculator</h3>
-          <p class="text-gray-600 text-sm">Estimate wiring, outlets, and electrical materials for projects.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/landscaping.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/landscaping.jpg" alt="Landscaping Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Landscaping Calculator</h3>
-          <p class="text-gray-600 text-sm">Estimate mulch, soil, and plants for landscaping projects.</p>
-        </div>
-      </a>
-
-      <a href="/TheProjectToolbox/calculators/soil.html" class="group block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-        <img src="/images/soil.jpg" alt="Soil Calculator" class="w-full h-48 object-cover" />
-        <div class="p-4 bg-white">
-          <h3 class="font-bold text-lg mb-2 text-gray-900">Soil Calculator</h3>
-          <p class="text-gray-600 text-sm">Estimate soil and amendments needed for gardens and beds.</p>
-        </div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-100 py-8 mt-16">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <div class="flex flex-wrap justify-center gap-4 mb-4">
-        <a href="/TheProjectToolbox/" class="text-gray-600 hover:text-gray-900">Home</a>
-        <a href="/TheProjectToolbox/calculators/deck-board.html" class="text-gray-600 hover:text-gray-900">Decking</a>
-        <a href="/TheProjectToolbox/calculators/flooring.html" class="text-gray-600 hover:text-gray-900">Flooring</a>
-        <a href="/TheProjectToolbox/calculators/painting.html" class="text-gray-600 hover:text-gray-900">Painting</a>
-        <a href="/TheProjectToolbox/calculators/tiling.html" class="text-gray-600 hover:text-gray-900">Tiling</a>
-        <a href="/TheProjectToolbox/calculators/drywall.html" class="text-gray-600 hover:text-gray-900">Drywall</a>
-      </div>
-      <p class="text-gray-500 text-sm">
-        © 2025 TheProjectToolbox. All numbers are estimates only. Always verify before purchase or construction.
-      </p>
-    </div>
-  </footer>
-
-</body>
+    <script>
+      const filter = document.getElementById("tradeFilter");
+      filter.addEventListener("change", () => {
+        const selected = filter.value;
+        const bubbles = document.querySelectorAll(".calculator-bubble");
+        bubbles.forEach((bubble) => {
+          if (selected === "all" || bubble.dataset.trade === selected) {
+            bubble.style.display = "block";
+          } else {
+            bubble.style.display = "none";
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
