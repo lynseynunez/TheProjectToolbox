@@ -16,7 +16,7 @@
   <body class="bg-white font-sans">
     <div class="relative flex flex-col min-h-screen overflow-x-hidden">
       <!-- Header -->
-      <header class="flex items-center justify-between border-b border-gray-200 px-10 py-3">
+      <header class="flex items-center justify-between border-b border-gray-200 px-12 py-4">
         <div class="flex items-center gap-4 text-gray-900">
           <img src="/TheProjectToolbox/images/logo.png" alt="TheProjectToolbox Logo" class="h-12 w-auto" />
         </div>
@@ -37,23 +37,23 @@
 
       <!-- Hero Section -->
       <section class="relative flex items-center justify-center bg-cover bg-center min-h-[480px]" style='background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url("/TheProjectToolbox/images/hero.jpg");'>
-        <div class="text-center text-white px-6">
-          <h1 class="text-4xl font-black leading-tight mb-4">Your Project, Simplified</h1>
+        <div class="text-center text-white px-6 max-w-6xl mx-auto">
+          <h1 class="text-4xl md:text-5xl font-black leading-tight mb-4">Your Project, Simplified</h1>
           <p class="text-base md:text-lg mb-6">Quickly estimate materials and tools for any construction, renovation, or DIY task.</p>
           <a href="#calculators" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-bold transition">Get Started</a>
         </div>
       </section>
 
       <!-- Intro Text -->
-      <section class="max-w-6xl mx-auto px-6 py-10 text-center">
-        <h2 class="text-2xl font-bold mb-4">Welcome to TheProjectToolbox</h2>
-        <p class="text-gray-800">TheProjectToolbox is your go-to resource for accurate material estimates and tool recommendations. Whether you're a seasoned contractor or a DIY enthusiast, our calculators ensure you have everything you need for a successful project.</p>
+      <section class="max-w-6xl mx-auto px-12 py-10 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">Welcome to TheProjectToolbox</h2>
+        <p class="text-gray-800 text-base md:text-lg">TheProjectToolbox is your go-to resource for accurate material estimates and tool recommendations. Whether you're a seasoned contractor or a DIY enthusiast, our calculators ensure you have everything you need for a successful project.</p>
       </section>
 
       <!-- Trade Filter -->
-      <section class="max-w-6xl mx-auto px-6 py-4">
+      <section class="max-w-6xl mx-auto px-12 py-6">
         <label class="flex flex-col">
-          <select id="tradeFilter" class="form-input border border-gray-300 rounded-lg p-3">
+          <select id="tradeFilter" class="form-input border border-gray-300 rounded-lg p-3 text-base">
             <option value="all">Select Your Trade</option>
             <option value="deck">Decks & Outdoor</option>
             <option value="flooring">Flooring & Tiling</option>
@@ -64,37 +64,37 @@
       </section>
 
       <!-- Calculator Grid -->
-      <section id="calculators" class="max-w-6xl mx-auto px-6 py-8">
-        <h2 class="text-2xl font-bold mb-4">Popular Calculators</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <section id="calculators" class="max-w-6xl mx-auto px-12 py-8">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6">Popular Calculators</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           <div class="calculator-bubble" data-trade="deck">
             <a href="/TheProjectToolbox/calculators/deck-board.html" class="flex flex-col gap-2">
               <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/decking.jpg");'></div>
-              <p class="text-gray-900 font-medium text-center">Deck Board Calculator</p>
+              <p class="text-gray-900 font-medium text-center text-base md:text-lg">Deck Board Calculator</p>
             </a>
           </div>
           <div class="calculator-bubble" data-trade="flooring">
             <a href="/TheProjectToolbox/calculators/tiling.html" class="flex flex-col gap-2">
               <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/tiles.jpg");'></div>
-              <p class="text-gray-900 font-medium text-center">Tile Waste Calculator</p>
+              <p class="text-gray-900 font-medium text-center text-base md:text-lg">Tile Waste Calculator</p>
             </a>
           </div>
           <div class="calculator-bubble" data-trade="painting">
             <a href="/TheProjectToolbox/calculators/painting.html" class="flex flex-col gap-2">
               <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/painting.jpg");'></div>
-              <p class="text-gray-900 font-medium text-center">Painting Calculator</p>
+              <p class="text-gray-900 font-medium text-center text-base md:text-lg">Painting Calculator</p>
             </a>
           </div>
           <div class="calculator-bubble" data-trade="flooring">
             <a href="/TheProjectToolbox/calculators/flooring.html" class="flex flex-col gap-2">
               <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/flooring.jpg");'></div>
-              <p class="text-gray-900 font-medium text-center">Flooring Calculator</p>
+              <p class="text-gray-900 font-medium text-center text-base md:text-lg">Flooring Calculator</p>
             </a>
           </div>
           <div class="calculator-bubble" data-trade="drywall">
             <a href="/TheProjectToolbox/calculators/drywall.html" class="flex flex-col gap-2">
               <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/drywall.jpg");'></div>
-              <p class="text-gray-900 font-medium text-center">Drywall Calculator</p>
+              <p class="text-gray-900 font-medium text-center text-base md:text-lg">Drywall Calculator</p>
             </a>
           </div>
         </div>
@@ -102,7 +102,7 @@
 
       <!-- Footer -->
       <footer class="bg-gray-100 mt-auto py-8">
-        <div class="max-w-6xl mx-auto px-6 text-center">
+        <div class="max-w-6xl mx-auto px-12 text-center">
           <div class="flex flex-wrap justify-center gap-4 mb-4">
             <a href="/TheProjectToolbox/" class="text-gray-600 hover:text-gray-900">Home</a>
             <a href="/TheProjectToolbox/calculators/deck-board.html" class="text-gray-600 hover:text-gray-900">Decking</a>
