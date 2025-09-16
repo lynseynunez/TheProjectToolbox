@@ -1,33 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paint Coverage Calculator</title>
-  <link rel="stylesheet" href="../style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paint Coverage Calculator</title>
+<link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <header>
-    <h1>Paint Coverage Calculator</h1>
-  </header>
 
-  <main>
-    <div class="calculator">
-      <label>Room Length (ft): <input id="length" type="number"></label>
-      <label>Room Width (ft): <input id="width" type="number"></label>
-      <label>Wall Height (ft): <input id="height" type="number"></label>
-      <label>Number of Doors/Windows: <input id="doors" type="number" value="0"></label>
-      <label>Number of Coats: <input id="coats" type="number" value="1"></label>
-      <label>Paint Coverage (sq ft/gallon): <input id="coverage" type="number" value="350"></label>
-      <button onclick="calculatePaint()">Calculate</button>
-      <p id="result"></p>
-    </div>
-  </main>
+<header>
+  <h1>Contractor Tools</h1>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="tile-waste.html">Tile</a>
+    <a href="fence-stain.html">Fence</a>
+    <a href="concrete.html">Concrete</a>
+    <a href="deck-board.html">Deck</a>
+    <a href="paint-coverage.html">Paint</a>
+  </nav>
+</header>
 
-  <footer>
-    <p>&copy; 2025 Contractor Tools</p>
-  </footer>
+<main>
+  <div class="calculator">
+    <h2>Paint Coverage Calculator</h2>
 
-  <script src="../js/paint-coverage.js"></script>
+    <label>Length (ft): <input id="length" type="number"></label>
+    <label>Width (ft): <input id="width" type="number"></label>
+    <label>Height (ft): <input id="height" type="number"></label>
+    <label>Doors/Windows (count): <input id="doors" type="number" value="0"></label>
+    <label>Coats: <input id="coats" type="number" value="1"></label>
+    <label>Coverage per Gallon (sq ft): <input id="coverage" type="number" value="350"></label>
+
+    <button onclick="calculatePaint()">Calculate</button>
+
+    <div id="result"></div>
+    <div id="materials"></div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 Contractor Tools</p>
+</footer>
+
+<script src="../js/paint-coverage.js"></script>
 </body>
 </html>
