@@ -5,50 +5,32 @@ layout: default
 {% include header.html %}
 
 <main>
-  <select id="tradeFilter" onchange="filterCards()">
-    <option value="all">All Trades</option>
-    <option value="flooring">Flooring & Tiling</option>
-    <option value="painting">Painting & Finishing</option>
-    <option value="concrete">Concrete & Masonry</option>
-    <option value="deck">Decks & Outdoor</option>
-  </select>
-
-  <section data-trade="flooring">
-    <h2>Flooring & Tiling</h2>
-    <div class="card-container">
-      <a href="calculators/tile-waste.html" class="card" data-trade="flooring">
-        <h3>Tile Waste Calculator</h3>
-      </a>
-    </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Welcome to TheProjectToolbox</h2>
+    <p>Your one-stop hub for contractor calculators and project tools.</p>
   </section>
 
-  <section data-trade="painting">
-    <h2>Painting & Finishing</h2>
-    <div class="card-container">
-      <a href="calculators/paint-coverage.html" class="card" data-trade="painting">
-        <h3>Paint Coverage Calculator</h3>
-      </a>
-      <a href="calculators/fence-stain.html" class="card" data-trade="painting">
-        <h3>Fence Stain Calculator</h3>
-      </a>
-    </div>
+  <!-- Trade Filter -->
+  <section class="filter-section">
+    <select id="tradeFilter" onchange="filterBubbles()">
+      <option value="all">All Trades</option>
+      <option value="flooring">Flooring & Tiling</option>
+      <option value="painting">Painting & Finishing</option>
+      <option value="concrete">Concrete & Masonry</option>
+      <option value="deck">Decks & Outdoor</option>
+    </select>
   </section>
 
-  <section data-trade="concrete">
-    <h2>Concrete & Masonry</h2>
-    <div class="card-container">
-      <a href="calculators/concrete.html" class="card" data-trade="concrete">
-        <h3>Concrete Calculator</h3>
-      </a>
-    </div>
-  </section>
-
-  <section data-trade="deck">
-    <h2>Decks & Outdoor Projects</h2>
-    <div class="card-container">
-      <a href="calculators/deck-board.html" class="card" data-trade="deck">
-        <h3>Deck Board Calculator</h3>
-      </a>
+  <!-- Calculator Bubbles -->
+  <section class="calculator-section">
+    <h2>Our Tools</h2>
+    <div class="calculator-bubbles">
+      <a href="calculators/tile-waste.html" class="bubble" data-trade="flooring">Tile Waste</a>
+      <a href="calculators/fence-stain.html" class="bubble" data-trade="painting">Fence Stain</a>
+      <a href="calculators/concrete.html" class="bubble" data-trade="concrete">Concrete</a>
+      <a href="calculators/deck-board.html" class="bubble" data-trade="deck">Deck Board</a>
+      <a href="calculators/paint-coverage.html" class="bubble" data-trade="painting">Paint Coverage</a>
     </div>
   </section>
 </main>
@@ -56,15 +38,16 @@ layout: default
 {% include footer.html %}
 
 <script>
-function filterCards() {
-  const filter = document.getElementById("tradeFilter").value;
-  const sections = document.querySelectorAll("section");
+// Trade Filter Function
+function filterBubbles() {
+  const filter = document.getElementById('tradeFilter').value;
+  const bubbles = document.querySelectorAll('.bubble');
 
-  sections.forEach(section => {
-    if (filter === "all" || section.getAttribute("data-trade") === filter) {
-      section.style.display = "block";
+  bubbles.forEach(bubble => {
+    if(filter === 'all' || bubble.dataset.trade === filter) {
+      bubble.style.display = 'inline-block';
     } else {
-      section.style.display = "none";
+      bubble.style.display = 'none';
     }
   });
 }
