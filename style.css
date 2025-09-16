@@ -88,3 +88,64 @@ footer {
 .calculator button:hover {
   background: #4059d1;
 }
+/* Header */
+header {
+  background: #5271ff;
+  color: white;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 0.75rem;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin-top: 2rem;
+}
+
+footer a {
+  color: #ffcc00;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Affiliate Button */
+.affiliate-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #ff6600;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
+
+.affiliate-button:hover {
+  background: #e65500;
+}
