@@ -11,7 +11,6 @@ layout: default
     <label>Room Width (ft): <input type="number" id="width" required></label>
     <label>Tile Size (sq ft per tile): <input type="number" id="tileSize" required></label>
     <label>Waste Percentage (%): <input type="number" id="waste" value="10"></label>
-    <button type="submit">Calculate</button>
   </form>
 
   <div id="result"></div>
@@ -21,13 +20,22 @@ layout: default
 {% include footer.html %}
 
 <script>
-document.getElementById('tileForm').addEventListener('submit', function(e) {
-  e.preventDefault();
+const lengthInput = document.getElementById('length');
+const widthInput = document.getElementById('width');
+const tileSizeInput = document.getElementById('tileSize');
+const wasteInput = document.getElementById('waste');
 
-  const length = parseFloat(document.getElementById('length').value);
-  const width = parseFloat(document.getElementById('width').value);
-  const tileSize = parseFloat(document.getElementById('tileSize').value);
-  const waste = parseFloat(document.getElementById('waste').value)/100;
+function updateTileCalculator() {
+  const length = parseFloat(lengthInput.value);
+  const width = parseFloat(widthInput.value);
+  const tileSize = parseFloat(tileSizeInput.value);
+  const waste = parseFloat(wasteInput.value)/100;
+
+  if (!length || !width || !tileSize) {
+    document.getElementById('result').innerHTML = '';
+    document.getElementById('toolList').innerHTML = '';
+    return;
+  }
 
   const area = length * width;
   const tilesNeeded = Math.ceil((area / tileSize) * (1 + waste));
@@ -48,5 +56,10 @@ document.getElementById('tileForm').addEventListener('submit', function(e) {
   toolHtml += '</ul>';
 
   document.getElementById('toolList').innerHTML = toolHtml;
+}
+
+// Listen to input changes
+[lengthInput, widthInput, tileSizeInput, wasteInput].forEach(input => {
+  input.addEventListener('input', updateTileCalculator);
 });
 </script>
