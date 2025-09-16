@@ -1,27 +1,28 @@
 body {
   font-family: Arial, sans-serif;
-  padding: 2rem;
   background: #f4f4f4;
+  padding: 2rem;
 }
 
 h1 {
   color: #333;
 }
 
-label {
-  display: block;
-  margin: 0.5rem 0;
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-button {
-  margin-top: 1rem;
+li a {
+  display: inline-block;
+  margin: 0.5rem 0;
   padding: 0.5rem 1rem;
   background: #5271ff;
   color: white;
-  border: none;
-  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
-button:hover {
+li a:hover {
   background: #4059d1;
 }
