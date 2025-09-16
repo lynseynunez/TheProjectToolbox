@@ -1,49 +1,18 @@
----
-layout: default
----
-
-{% include header.html %}
-
-<main>
-  <h1>Deck Board Calculator</h1>
-  <form id="deckForm">
-    <label>Deck Length (ft): <input type="number" id="length" required></label>
-    <label>Deck Width (ft): <input type="number" id="width" required></label>
-    <label>Board Width (inches): <input type="number" id="boardWidth" value="6" required></label>
-    <button type="submit">Calculate</button>
-  </form>
-
-  <div id="result"></div>
-  <div id="toolList"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deck Board Calculator</title>
+<link href="/path-to-your-tailwind.css" rel="stylesheet">
+</head>
+<body class="bg-white font-sans">
+<header class="px-6 py-4 border-b border-gray-200">
+  <a href="/" class="text-blue-600 font-bold">← Home</a>
+</header>
+<main class="max-w-3xl mx-auto p-6 text-center">
+  <h1 class="text-2xl font-bold mb-4">Deck Board Calculator</h1>
+  <p>This calculator page is under construction.</p>
 </main>
-
-{% include footer.html %}
-
-<script>
-document.getElementById('deckForm').addEventListener('submit', function(e){
-  e.preventDefault();
-
-  const length = parseFloat(document.getElementById('length').value);
-  const width = parseFloat(document.getElementById('width').value);
-  const boardWidthInFeet = parseFloat(document.getElementById('boardWidth').value) / 12;
-
-  const boardsNeeded = Math.ceil(width / boardWidthInFeet * length / boardWidthInFeet);
-
-  document.getElementById('result').innerHTML = `<p>You need <strong>${boardsNeeded}</strong> deck boards.</p>`;
-
-  const tools = [
-    {name: 'Circular Saw', url: 'https://example.com/saw'},
-    {name: 'Cordless Drill', url: 'https://example.com/drill'},
-    {name: 'Deck Screws', url: 'https://example.com/screws'},
-    {name: 'Tape Measure', url: 'https://example.com/tape-measure'}
-  ];
-
-  let toolHtml = '<h3>Suggested Tools & Materials:</h3><ul>';
-  tools.forEach(tool => {
-    toolHtml += `<li><a href="${tool.url}" target="_blank">${tool.name}</a></li>`;
-  });
-  toolHtml += '</ul>';
-
-  document.getElementById('toolList').innerHTML = toolHtml;
-});
-</script>
+</body>
+</html>
