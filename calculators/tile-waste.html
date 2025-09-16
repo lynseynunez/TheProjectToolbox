@@ -7,12 +7,24 @@
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <h1>Tile Waste Factor Calculator</h1>
-  <label>Room Length (ft): <input id="length" type="number"></label><br>
-  <label>Room Width (ft): <input id="width" type="number"></label><br>
-  <label>Tile Size (in): <input id="tile" type="number"></label><br>
-  <button onclick="calculate()">Calculate</button>
-  <p id="result"></p>
+  <header>
+    <h1>Tile Waste Calculator</h1>
+  </header>
+
+  <main>
+    <div class="calculator">
+      <label>Room Length (ft): <input id="length" type="number"></label><br>
+      <label>Room Width (ft): <input id="width" type="number"></label><br>
+      <label>Tile Size (in): <input id="tile" type="number"></label><br>
+      <button onclick="calculate()">Calculate</button>
+      <p id="result"></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Contractor Tools</p>
+  </footer>
+
   <script src="../js/tile-waste.js"></script>
 </body>
 </html>
