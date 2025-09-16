@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concrete Calculator</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1>Concrete Calculator</h1>
+  </header>
+
+  <main>
+    <div class="calculator">
+      <label>Length (ft): <input id="length" type="number"></label>
+      <label>Width (ft): <input id="width" type="number"></label>
+      <label>Depth (in): <input id="depth" type="number"></label>
+      <label>Waste factor (%): <input id="waste" type="number" value="10"></label>
+      <button onclick="calculateConcrete()">Calculate</button>
+      <p id="result"></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Contractor Tools</p>
+  </footer>
+
+  <script src="../js/concrete.js"></script>
+</body>
+</html>
