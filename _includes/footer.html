@@ -1,3 +1,14 @@
-<footer>
-  <p>&copy; 2025 TheProjectToolbox</p>
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>&copy; {{ site.time | date: "%Y" }} TheProjectToolbox. All rights reserved.</p>
+
+    <div class="footer-links">
+      <a href="{{ '/' | relative_url }}">Home</a> |
+      <a href="{{ '/calculators/tile-waste.html' | relative_url }}">Tile Waste</a> |
+      <a href="{{ '/calculators/fence-stain.html' | relative_url }}">Fence Stain</a> |
+      <a href="{{ '/calculators/concrete.html' | relative_url }}">Concrete</a> |
+      <a href="{{ '/calculators/deck-board.html' | relative_url }}">Deck Board</a> |
+      <a href="{{ '/calculators/paint-coverage.html' | relative_url }}">Paint Coverage</a>
+    </div>
+  </div>
 </footer>
