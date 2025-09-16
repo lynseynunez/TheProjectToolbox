@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Deck Post Calculator - TheProjectToolbox</title>
+    <title>Deck Post Calculator | TheProjectToolbox</title>
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
     <link
       rel="stylesheet"
@@ -15,6 +15,7 @@
   </head>
   <body class="bg-white font-sans">
     <div class="relative flex flex-col min-h-screen overflow-x-hidden">
+
       <!-- Header -->
       <header class="flex items-center justify-between border-b border-gray-200 px-10 py-3">
         <div class="flex items-center gap-4 text-gray-900">
@@ -29,9 +30,6 @@
             <a href="/TheProjectToolbox/calculators/tiling.html">Tiling</a>
             <a href="/TheProjectToolbox/calculators/drywall.html">Drywall</a>
           </nav>
-          <a href="#calculators" class="bg-blue-600 text-white font-bold px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
-            Get Started
-          </a>
         </div>
       </header>
 
@@ -39,67 +37,57 @@
       <section class="relative flex items-center justify-center bg-cover bg-center min-h-[480px]" style='background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url("/TheProjectToolbox/images/hero.jpg");'>
         <div class="text-center text-white px-6">
           <h1 class="text-4xl font-black leading-tight mb-4">Deck Post Calculator</h1>
-          <p class="text-base md:text-lg mb-6">Quickly estimate the number of posts needed for your deck project.</p>
-          <a href="#calculator-section" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-bold transition">Start Calculating</a>
+          <p class="text-base md:text-lg mb-6">Easily estimate materials and tools needed for deck posts.</p>
         </div>
       </section>
 
       <!-- Calculator Section -->
-      <section id="calculator-section" class="max-w-5xl mx-auto px-6 py-10">
-        <div class="bg-white shadow-lg rounded-xl p-6 md:p-10">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <label class="flex flex-col">
-              <span class="text-gray-700 font-medium mb-2">Deck Length (ft)</span>
-              <input type="number" placeholder="Enter length" class="form-input rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            </label>
-            <label class="flex flex-col">
-              <span class="text-gray-700 font-medium mb-2">Deck Width (ft)</span>
-              <input type="number" placeholder="Enter width" class="form-input rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            </label>
-            <label class="flex flex-col">
-              <span class="text-gray-700 font-medium mb-2">Post Spacing (ft)</span>
-              <input type="number" placeholder="Recommended 6-8 ft" class="form-input rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            </label>
-          </div>
+      <section class="max-w-5xl mx-auto px-6 py-10">
+        <div class="bg-white shadow-lg rounded-xl p-6">
+          <h2 class="text-2xl font-bold mb-6">Calculate Your Deck Posts</h2>
 
-          <div class="flex justify-end">
-            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition">Calculate</button>
-          </div>
-
-          <div class="mt-8">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">Results</h2>
-            <div class="bg-gray-50 rounded-lg p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="flex justify-between">
-                <span class="text-gray-600">Number of Posts:</span>
-                <span class="font-bold text-gray-900">12</span>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-gray-600">Post Height Needed (ft):</span>
-                <span class="font-bold text-gray-900">8</span>
-              </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="flex flex-col">
+              <label class="mb-2 font-medium text-gray-700">Deck Length (ft)</label>
+              <input type="number" id="deckLength" class="form-input rounded-lg border border-gray-300 p-3" placeholder="Enter length" />
+            </div>
+            <div class="flex flex-col">
+              <label class="mb-2 font-medium text-gray-700">Deck Width (ft)</label>
+              <input type="number" id="deckWidth" class="form-input rounded-lg border border-gray-300 p-3" placeholder="Enter width" />
+            </div>
+            <div class="flex flex-col">
+              <label class="mb-2 font-medium text-gray-700">Post Spacing (ft)</label>
+              <input type="number" id="postSpacing" class="form-input rounded-lg border border-gray-300 p-3" placeholder="Typical 6-8 ft" />
             </div>
           </div>
 
-          <div class="mt-10">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">Suggested Tools & Materials</h2>
+          <div class="flex justify-end">
+            <button onclick="calculatePosts()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg">Calculate</button>
+          </div>
+
+          <div class="mt-6 border-t border-gray-200 pt-6">
+            <h3 class="text-xl font-bold mb-3">Results</h3>
+            <p id="results" class="text-gray-800">Enter dimensions and click calculate.</p>
+          </div>
+
+          <!-- Suggested Tools & Materials -->
+          <div class="mt-8 border-t border-gray-200 pt-6">
+            <h3 class="text-xl font-bold mb-4">Suggested Tools & Materials</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div class="bg-white rounded-xl shadow p-4 flex flex-col">
-                <div class="h-32 bg-center bg-cover rounded-lg mb-3" style="background-image: url('/TheProjectToolbox/images/posts.jpg');"></div>
-                <p class="text-gray-700 font-semibold mb-1">Pressure-Treated Posts</p>
-                <p class="text-gray-500 text-sm mb-2">4x4 ft, 8 ft long</p>
-                <button class="bg-gray-100 text-gray-900 py-2 px-3 rounded-lg font-medium hover:bg-gray-200 transition">View Product</button>
+              <div class="bg-gray-50 rounded-lg p-4 flex flex-col items-center">
+                <img src="/TheProjectToolbox/images/wood-post.jpg" alt="Wood Post" class="w-full h-32 object-cover rounded-md mb-2"/>
+                <p class="font-medium">Pressure-Treated Wood Post</p>
+                <p class="text-gray-600 text-sm">4x4 ft, suitable for deck posts</p>
               </div>
-              <div class="bg-white rounded-xl shadow p-4 flex flex-col">
-                <div class="h-32 bg-center bg-cover rounded-lg mb-3" style="background-image: url('/TheProjectToolbox/images/screws.jpg');"></div>
-                <p class="text-gray-700 font-semibold mb-1">Galvanized Screws</p>
-                <p class="text-gray-500 text-sm mb-2">3 inch, exterior grade</p>
-                <button class="bg-gray-100 text-gray-900 py-2 px-3 rounded-lg font-medium hover:bg-gray-200 transition">View Product</button>
+              <div class="bg-gray-50 rounded-lg p-4 flex flex-col items-center">
+                <img src="/TheProjectToolbox/images/concrete.jpg" alt="Concrete" class="w-full h-32 object-cover rounded-md mb-2"/>
+                <p class="font-medium">Concrete Mix</p>
+                <p class="text-gray-600 text-sm">For securing posts in ground</p>
               </div>
-              <div class="bg-white rounded-xl shadow p-4 flex flex-col">
-                <div class="h-32 bg-center bg-cover rounded-lg mb-3" style="background-image: url('/TheProjectToolbox/images/hammer.jpg');"></div>
-                <p class="text-gray-700 font-semibold mb-1">Hammer</p>
-                <p class="text-gray-500 text-sm mb-2">Claw hammer, ergonomic handle</p>
-                <button class="bg-gray-100 text-gray-900 py-2 px-3 rounded-lg font-medium hover:bg-gray-200 transition">View Product</button>
+              <div class="bg-gray-50 rounded-lg p-4 flex flex-col items-center">
+                <img src="/TheProjectToolbox/images/screws.jpg" alt="Screws" class="w-full h-32 object-cover rounded-md mb-2"/>
+                <p class="font-medium">Deck Screws</p>
+                <p class="text-gray-600 text-sm">3-inch exterior-grade screws</p>
               </div>
             </div>
           </div>
@@ -112,14 +100,31 @@
           <div class="flex flex-wrap justify-center gap-4 mb-4">
             <a href="/TheProjectToolbox/" class="text-gray-600 hover:text-gray-900">Home</a>
             <a href="/TheProjectToolbox/calculators/deck-board.html" class="text-gray-600 hover:text-gray-900">Decking</a>
-            <a href="/TheProjectToolbox/calculators/flooring.html" class="text-gray-600 hover:text-gray-900">Flooring</a>
-            <a href="/TheProjectToolbox/calculators/painting.html" class="text-gray-600 hover:text-gray-900">Painting</a>
-            <a href="/TheProjectToolbox/calculators/tiling.html" class="text-gray-600 hover:text-gray-900">Tiling</a>
-            <a href="/TheProjectToolbox/calculators/drywall.html" class="text-gray-600 hover:text-gray-900">Drywall</a>
+            <a href="/TheProjectToolbox/calculators/deck-post.html" class="text-gray-600 hover:text-gray-900">Deck Posts</a>
           </div>
-          <p class="text-gray-500 text-sm">© 2025 TheProjectToolbox. All numbers are estimates only. All rights reserved.</p>
+          <p class="text-gray-500 text-sm">
+            © 2025 TheProjectToolbox. All numbers are estimates only; always verify materials before purchasing.
+          </p>
         </div>
       </footer>
+
     </div>
+
+    <script>
+      function calculatePosts() {
+        const length = parseFloat(document.getElementById("deckLength").value);
+        const width = parseFloat(document.getElementById("deckWidth").value);
+        const spacing = parseFloat(document.getElementById("postSpacing").value);
+
+        if (isNaN(length) || isNaN(width) || isNaN(spacing) || spacing <= 0) {
+          document.getElementById("results").innerText = "Please enter valid numbers.";
+          return;
+        }
+
+        const perimeter = 2 * (length + width);
+        const posts = Math.ceil(perimeter / spacing);
+        document.getElementById("results").innerText = `Estimated Posts Needed: ${posts}`;
+      }
+    </script>
   </body>
 </html>
