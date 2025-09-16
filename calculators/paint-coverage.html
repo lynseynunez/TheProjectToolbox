@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paint Coverage Calculator</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1>Paint Coverage Calculator</h1>
+  </header>
+
+  <main>
+    <div class="calculator">
+      <label>Room Length (ft): <input id="length" type="number"></label>
+      <label>Room Width (ft): <input id="width" type="number"></label>
+      <label>Wall Height (ft): <input id="height" type="number"></label>
+      <label>Number of Doors/Windows: <input id="doors" type="number" value="0"></label>
+      <label>Number of Coats: <input id="coats" type="number" value="1"></label>
+      <label>Paint Coverage (sq ft/gallon): <input id="coverage" type="number" value="350"></label>
+      <button onclick="calculatePaint()">Calculate</button>
+      <p id="result"></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Contractor Tools</p>
+  </footer>
+
+  <script src="../js/paint-coverage.js"></script>
+</body>
+</html>
