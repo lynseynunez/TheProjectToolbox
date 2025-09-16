@@ -1,47 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fence Stain Calculator</title>
-<link rel="stylesheet" href="../style.css">
-</head>
-<body>
+---
+layout: default
+---
 
-<header>
-  <a href="../index.html">
-    <img src="../images/logo.png" alt="TheProjectToolbox" class="logo">
-  </a>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="tile-waste.html">Tile</a>
-    <a href="fence-stain.html">Fence</a>
-    <a href="concrete.html">Concrete</a>
-    <a href="deck-board.html">Deck</a>
-    <a href="paint-coverage.html">Paint</a>
-  </nav>
-</header>
-
+{% include header.html %}
 
 <main>
-  <div class="calculator">
-    <h2>Fence Stain Calculator</h2>
+  <h1>Fence Stain Calculator</h1>
+  <form id="fenceForm">
+    <label>Fence Length (ft): <input type="number" id="length" required></label>
+    <label>Fence Height (ft): <input type="number" id="height" required></label>
+    <label>Coverage (sq ft per gallon): <input type="number" id="coverage" value="200" required></label>
+    <button type="submit">Calculate</button>
+  </form>
 
-    <label>Fence Length (ft): <input id="length" type="number"></label>
-    <label>Fence Height (ft): <input id="height" type="number"></label>
-    <label>Coats: <input id="coats" type="number" value="1"></label>
-
-    <button onclick="calculateFence()">Calculate</button>
-
-    <div id="result"></div>
-    <div id="materials"></div>
-  </div>
+  <div id="result"></div>
+  <div id="toolList"></div>
 </main>
 
-<footer>
-  <p>&copy; 2025 TheProjectToolbox</p>
-</footer>
+{% include footer.html %}
 
-<script src="../js/fence-stain.js"></script>
-</body>
-</html>
+<script>
+document.getElementById('fenceForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const length = parseFloat(document.getElementById('length').value);
+  const height = parseFloat(document.getElementById('height').value);
+  const coverage = parseFloat(document.getElementById('coverage').value);
+
+  const area = length * height;
+  const gallons = Math.ceil(area / coverage);
+
+  document.getElementById('result').innerHTML = `<p>You need <strong>${gallons}</strong> gallons of stain.</p>`;
+
+  const tools = [
+    {name: 'Stain Brush', url: 'https://example.com/stain-brush'},
+    {name: 'Paint Sprayer', url: 'https://example.com/sprayer'},
+    {name: 'Ladder', url: 'https://example.com/ladder'},
+    {name: 'Gloves', url: 'https://example.com/gloves'}
+  ];
+
+  let toolHtml = '<h3>Suggested Tools & Materials:</h3><ul>';
+  tools.forEach(tool => {
+    toolHtml += `<li><a href="${tool.url}" target="_blank">${tool.name}</a></li>`;
+  });
+  toolHtml += '</ul>';
+
+  document.getElementById('toolList').innerHTML = toolHtml;
+});
+</script>
