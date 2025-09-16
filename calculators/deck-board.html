@@ -1,49 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deck Board Calculator</title>
-<link rel="stylesheet" href="../style.css">
-</head>
-<body>
+---
+layout: default
+---
 
-<header>
-  <a href="../index.html">
-    <img src="../images/logo.png" alt="TheProjectToolbox" class="logo">
-  </a>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="tile-waste.html">Tile</a>
-    <a href="fence-stain.html">Fence</a>
-    <a href="concrete.html">Concrete</a>
-    <a href="deck-board.html">Deck</a>
-    <a href="paint-coverage.html">Paint</a>
-  </nav>
-</header>
-
+{% include header.html %}
 
 <main>
-  <div class="calculator">
-    <h2>Deck Board Calculator</h2>
+  <h1>Deck Board Calculator</h1>
+  <form id="deckForm">
+    <label>Deck Length (ft): <input type="number" id="length" required></label>
+    <label>Deck Width (ft): <input type="number" id="width" required></label>
+    <label>Board Width (inches): <input type="number" id="boardWidth" value="6" required></label>
+    <button type="submit">Calculate</button>
+  </form>
 
-    <label>Length (ft): <input id="length" type="number"></label>
-    <label>Width (ft): <input id="width" type="number"></label>
-    <label>Board Width (in): <input id="boardWidth" type="number"></label>
-    <label>Board Length (ft): <input id="boardLength" type="number"></label>
-    <label>Spacing (in): <input id="spacing" type="number" value="0.25"></label>
-
-    <button onclick="calculateDeck()">Calculate</button>
-
-    <div id="result"></div>
-    <div id="materials"></div>
-  </div>
+  <div id="result"></div>
+  <div id="toolList"></div>
 </main>
 
-<footer>
-  <p>&copy; 2025 TheProjectToolbox</p>
-</footer>
+{% include footer.html %}
 
-<script src="../js/deck-board.js"></script>
-</body>
-</html>
+<script>
+document.getElementById('deckForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const length = parseFloat(document.getElementById('length').value);
+  const width = parseFloat(document.getElementById('width').value);
+  const boardWidthInFeet = parseFloat(document.getElementById('boardWidth').value) / 12;
+
+  const boardsNeeded = Math.ceil(width / boardWidthInFeet * length / boardWidthInFeet);
+
+  document.getElementById('result').innerHTML = `<p>You need <strong>${boardsNeeded}</strong> deck boards.</p>`;
+
+  const tools = [
+    {name: 'Circular Saw', url: 'https://example.com/saw'},
+    {name: 'Cordless Drill', url: 'https://example.com/drill'},
+    {name: 'Deck Screws', url: 'https://example.com/screws'},
+    {name: 'Tape Measure', url: 'https://example.com/tape-measure'}
+  ];
+
+  let toolHtml = '<h3>Suggested Tools & Materials:</h3><ul>';
+  tools.forEach(tool => {
+    toolHtml += `<li><a href="${tool.url}" target="_blank">${tool.name}</a></li>`;
+  });
+  toolHtml += '</ul>';
+
+  document.getElementById('toolList').innerHTML = toolHtml;
+});
+</script>
