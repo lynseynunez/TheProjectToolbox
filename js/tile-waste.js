@@ -13,7 +13,7 @@ function calculate() {
   let tileArea = tileFt * tileFt;
 
   let tilesNeeded = Math.ceil(roomArea / tileArea);
-  let wasteTiles = Math.ceil(tilesNeeded * 0.1); 
+  let wasteTiles = Math.ceil(tilesNeeded * 0.1);
   let totalTiles = tilesNeeded + wasteTiles;
 
   document.getElementById("result").innerText =
