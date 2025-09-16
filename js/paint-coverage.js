@@ -12,11 +12,20 @@ function calculatePaint() {
   }
 
   let wallArea = 2 * height * (length + width);
-  let doorWindowArea = doors * 20; // average 20 sq ft per door/window
+  let doorWindowArea = doors * 20;
   let totalArea = wallArea - doorWindowArea;
   let gallonsNeeded = (totalArea * coats) / coverage;
-  let totalGallons = Math.ceil(gallonsNeeded * 1.1); // add 10% extra
+  let totalGallons = Math.ceil(gallonsNeeded * 1.1);
 
   document.getElementById("result").innerText =
     `You need approximately ${totalGallons} gallons of paint (including 10% extra).`;
+
+  document.getElementById("materials").innerHTML = `
+    <h3>Materials Needed:</h3>
+    <ul>
+      <li>${totalGallons} gallon(s) of paint <a href="https://example.com/paint-affiliate" target="_blank" class="affiliate-button">Buy Now</a></li>
+      <li>Paint brushes <a href="https://example.com/brush-affiliate" target="_blank" class="affiliate-button">Buy Now</a></li>
+      <li>Roller tray <a href="https://example.com/roller-affiliate" target="_blank" class="affiliate-button">Buy Now</a></li>
+    </ul>
+  `;
 }
