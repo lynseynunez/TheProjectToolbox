@@ -1,48 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tile Waste Calculator</title>
-<link rel="stylesheet" href="../style.css">
-</head>
-<body>
+---
+layout: default
+---
 
-<header>
-  <a href="../index.html">
-    <img src="../images/logo.png" alt="TheProjectToolbox" class="logo">
-  </a>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="tile-waste.html">Tile</a>
-    <a href="fence-stain.html">Fence</a>
-    <a href="concrete.html">Concrete</a>
-    <a href="deck-board.html">Deck</a>
-    <a href="paint-coverage.html">Paint</a>
-  </nav>
-</header>
-
+{% include header.html %}
 
 <main>
-  <div class="calculator">
-    <h2>Tile Waste Calculator</h2>
+  <h1>Tile Waste Calculator</h1>
+  <form id="tileForm">
+    <label>Room Length (ft): <input type="number" id="length" required></label>
+    <label>Room Width (ft): <input type="number" id="width" required></label>
+    <label>Tile Size (sq ft per tile): <input type="number" id="tileSize" required></label>
+    <label>Waste Percentage (%): <input type="number" id="waste" value="10"></label>
+    <button type="submit">Calculate</button>
+  </form>
 
-    <label>Room Length (ft): <input id="length" type="number"></label>
-    <label>Room Width (ft): <input id="width" type="number"></label>
-    <label>Tile Size (in): <input id="tileSize" type="number"></label>
-    <label>Waste %: <input id="waste" type="number" value="10"></label>
-
-    <button onclick="calculateTile()">Calculate</button>
-
-    <div id="result"></div>
-    <div id="materials"></div>
-  </div>
+  <div id="result"></div>
+  <div id="toolList"></div>
 </main>
 
-<footer>
-  <p>&copy; 2025 TheProjectToolbox</p>
-</footer>
+{% include footer.html %}
 
-<script src="../js/tile-waste.js"></script>
-</body>
-</html>
+<script>
+document.getElementById('tileForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const length = parseFloat(document.getElementById('length').value);
+  const width = parseFloat(document.getElementById('width').value);
+  const tileSize = parseFloat(document.getElementById('tileSize').value);
+  const waste = parseFloat(document.getElementById('waste').value)/100;
+
+  const area = length * width;
+  const tilesNeeded = Math.ceil((area / tileSize) * (1 + waste));
+
+  document.getElementById('result').innerHTML = `<p>You need <strong>${tilesNeeded}</strong> tiles (including ${waste*100}% waste).</p>`;
+
+  const tools = [
+    {name: 'Tile Cutter', url: 'https://example.com/tile-cutter'},
+    {name: 'Notched Trowel', url: 'https://example.com/trowel'},
+    {name: 'Tile Spacers', url: 'https://example.com/spacers'},
+    {name: 'Level', url: 'https://example.com/level'}
+  ];
+
+  let toolHtml = '<h3>Suggested Tools & Materials:</h3><ul>';
+  tools.forEach(tool => {
+    toolHtml += `<li><a href="${tool.url}" target="_blank">${tool.name}</a></li>`;
+  });
+  toolHtml += '</ul>';
+
+  document.getElementById('toolList').innerHTML = toolHtml;
+});
+</script>
