@@ -3,28 +3,27 @@ function calculateDeck() {
   let width = parseFloat(document.getElementById("width").value);
   let boardWidth = parseFloat(document.getElementById("boardWidth").value);
   let boardLength = parseFloat(document.getElementById("boardLength").value);
-  let spacing = parseFloat(document.getElementById("spacing").value);
+  let spacing = parseFloat(document.getElementById("spacing").value) || 0.25;
 
   if (!length || !width || !boardWidth || !boardLength) {
     document.getElementById("result").innerText = "Please enter all values.";
+    document.getElementById("materials").innerHTML = "";
     return;
   }
 
-  let totalWidthPerBoard = (boardWidth + spacing) / 12;
-  let boardsAcross = Math.ceil(width / totalWidthPerBoard);
-  let rowsAlong = Math.ceil(length / boardLength);
-  let totalBoards = boardsAcross * rowsAlong;
-  let screws = totalBoards * 30;
+  let totalArea = length * width;
+  let boardArea = boardLength * (boardWidth / 12 + spacing / 12);
+  let boardsNeeded = Math.ceil(totalArea / boardArea);
 
-  document.getElementById("result").innerText =
-    `You need approximately ${totalBoards} boards and ${screws} screws.`;
+  document.getElementById("result").innerText = 
+    `You need approximately ${boardsNeeded} boards.`;
 
   document.getElementById("materials").innerHTML = `
     <h3>Materials Needed:</h3>
     <ul>
-      <li>${totalBoards} boards <a href="https://example.com/boards-affiliate" target="_blank" class="affiliate-button">Buy Now</a></li>
-      <li>${screws} screws <a href="https://example.com/screws-affiliate" target="_blank" class="affiliate-button">Buy Now</a></li>
-      <li>Deck brackets <a href="https://example.com/brackets-affiliate" target="_blank" class="affiliate-button">Buy Now</a></li>
+      <li>${boardsNeeded} Deck Boards<br><a href="https://example.com/deckboard-affiliate" target="_blank" class="affiliate-button">Buy Boards</a></li>
+      <li>Screws (per board)<br><a href="https://example.com/screws-affiliate" target="_blank" class="affiliate-button">Buy Screws</a></li>
+      <li>Deck Sealant<br><a href="https://example.com/sealant-affiliate" target="_blank" class="affiliate-button">Buy Sealant</a></li>
     </ul>
   `;
 }
