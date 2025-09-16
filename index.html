@@ -1,67 +1,136 @@
----
-layout: default
----
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TheProjectToolbox</title>
-  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TheProjectToolbox</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans:wght@400;500;700;900&amp;family=Work+Sans:wght@400;500;700;900"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body class="bg-white font-sans">
+    <div class="relative flex flex-col min-h-screen overflow-x-hidden">
+      <!-- Header -->
+      <header class="flex items-center justify-between border-b border-gray-200 px-10 py-3">
+        <div class="flex items-center gap-4 text-gray-900">
+          <img src="/TheProjectToolbox/images/logo.png" alt="TheProjectToolbox Logo" class="h-12 w-auto" />
+          <h2 class="text-lg font-bold">TheProjectToolbox</h2>
+        </div>
+        <div class="flex flex-1 justify-end gap-8 items-center">
+          <nav class="flex gap-6 text-gray-900 text-sm font-medium">
+            <a href="/TheProjectToolbox/">Home</a>
+            <a href="/TheProjectToolbox/calculators/deck-board.html">Decking</a>
+            <a href="/TheProjectToolbox/calculators/flooring.html">Flooring</a>
+            <a href="/TheProjectToolbox/calculators/painting.html">Painting</a>
+            <a href="/TheProjectToolbox/calculators/tiling.html">Tiling</a>
+            <a href="/TheProjectToolbox/calculators/drywall.html">Drywall</a>
+          </nav>
+          <a href="#calculators" class="bg-blue-600 text-white font-bold px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+            Get Started
+          </a>
+        </div>
+      </header>
 
-{% include header.html %}
+      <!-- Hero Section -->
+      <section class="relative flex items-center justify-center bg-cover bg-center min-h-[480px]" style='background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCsL8SWHojqXDBUG2g76ORwoUpHbNjt4RLvMuaNCpjVd4bHCA-hi7cPhZ1QFXGMN0csFpq7ypHZN3UKnOHECIwmivPYpNjEyZZth5ylopZND7haZ00SxeD7_MZWwF9s74gXmvZH3vpv6sScqUtjV2z8UCfJxexyXc5dkUBJTbnV9ulmQLIO3G4bmt1AFr55_3J8e_jQ1MUFiZT424KuRpFauP-1gVH9EsRt25SKzV-hhep29MsPgSFu0CunAsFy0Q4F4pJjI25shwE");'>
+        <div class="text-center text-white px-6">
+          <h1 class="text-4xl font-black leading-tight mb-4">Your Project, Simplified</h1>
+          <p class="text-base md:text-lg mb-6">Quickly estimate materials and tools for any construction, renovation, or DIY task.</p>
+          <a href="#calculators" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-bold transition">Get Started</a>
+        </div>
+      </section>
 
-<main>
-  <!-- Hero Section -->
-  <section class="hero">
-    <h2>Welcome to TheProjectToolbox</h2>
-    <p>Your one-stop hub for contractor calculators and project tools.</p>
-  </section>
+      <!-- Intro Text -->
+      <section class="max-w-3xl mx-auto px-6 py-10 text-center">
+        <h2 class="text-2xl font-bold mb-4">Welcome to TheProjectToolbox</h2>
+        <p class="text-gray-800">TheProjectToolbox is your go-to resource for accurate material estimates and tool recommendations. Whether you're a seasoned contractor or a DIY enthusiast, our calculators ensure you have everything you need for a successful project.</p>
+      </section>
 
-  <!-- Trade Filter -->
-  <section class="filter-section">
-    <select id="tradeFilter" onchange="filterBubbles()">
-      <option value="all">All Trades</option>
-      <option value="flooring">Flooring & Tiling</option>
-      <option value="painting">Painting & Finishing</option>
-      <option value="concrete">Concrete & Masonry</option>
-      <option value="deck">Decks & Outdoor</option>
-    </select>
-  </section>
+      <!-- Trade Filter -->
+      <section class="max-w-sm mx-auto px-6 py-4">
+        <label class="flex flex-col">
+          <select id="tradeFilter" class="form-input border border-gray-300 rounded-lg p-3">
+            <option value="all">Select Your Trade</option>
+            <option value="deck">Decks & Outdoor</option>
+            <option value="flooring">Flooring & Tiling</option>
+            <option value="painting">Painting & Finishing</option>
+            <option value="concrete">Concrete & Masonry</option>
+          </select>
+        </label>
+      </section>
 
-  <!-- Calculator Bubbles -->
-  <section class="calculator-section">
-    <h2>Our Tools</h2>
-    <div class="calculator-bubbles">
-      <a href="calculators/tile-waste.html" class="bubble" data-trade="flooring">Tile Waste</a>
-      <a href="calculators/fence-stain.html" class="bubble" data-trade="painting">Fence Stain</a>
-      <a href="calculators/concrete.html" class="bubble" data-trade="concrete">Concrete</a>
-      <a href="calculators/deck-board.html" class="bubble" data-trade="deck">Deck Board</a>
-      <a href="calculators/paint-coverage.html" class="bubble" data-trade="painting">Paint Coverage</a>
+      <!-- Calculator Grid -->
+      <section id="calculators" class="max-w-5xl mx-auto px-6 py-8">
+        <h2 class="text-2xl font-bold mb-4">Popular Calculators</h2>
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-4">
+          <div class="calculator-bubble" data-trade="deck">
+            <a href="/TheProjectToolbox/calculators/deck-board.html" class="flex flex-col gap-2">
+              <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/deck.jpg");'></div>
+              <p class="text-gray-900 font-medium text-center">Deck Board Calculator</p>
+            </a>
+          </div>
+          <div class="calculator-bubble" data-trade="flooring">
+            <a href="/TheProjectToolbox/calculators/flooring.html" class="flex flex-col gap-2">
+              <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/flooring.jpg");'></div>
+              <p class="text-gray-900 font-medium text-center">Flooring Calculator</p>
+            </a>
+          </div>
+          <div class="calculator-bubble" data-trade="painting">
+            <a href="/TheProjectToolbox/calculators/painting.html" class="flex flex-col gap-2">
+              <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/painting.jpg");'></div>
+              <p class="text-gray-900 font-medium text-center">Painting Calculator</p>
+            </a>
+          </div>
+          <div class="calculator-bubble" data-trade="flooring">
+            <a href="/TheProjectToolbox/calculators/tiling.html" class="flex flex-col gap-2">
+              <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/tiling.jpg");'></div>
+              <p class="text-gray-900 font-medium text-center">Tiling Calculator</p>
+            </a>
+          </div>
+          <div class="calculator-bubble" data-trade="drywall">
+            <a href="/TheProjectToolbox/calculators/drywall.html" class="flex flex-col gap-2">
+              <div class="aspect-square rounded-lg bg-cover bg-center" style='background-image:url("/TheProjectToolbox/images/drywall.jpg");'></div>
+              <p class="text-gray-900 font-medium text-center">Drywall Calculator</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-gray-100 mt-auto py-8">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+          <div class="flex flex-wrap justify-center gap-4 mb-4">
+            <a href="/TheProjectToolbox/" class="text-gray-600 hover:text-gray-900">Home</a>
+            <a href="/TheProjectToolbox/calculators/deck-board.html" class="text-gray-600 hover:text-gray-900">Decking</a>
+            <a href="/TheProjectToolbox/calculators/flooring.html" class="text-gray-600 hover:text-gray-900">Flooring</a>
+            <a href="/TheProjectToolbox/calculators/painting.html" class="text-gray-600 hover:text-gray-900">Painting</a>
+            <a href="/TheProjectToolbox/calculators/tiling.html" class="text-gray-600 hover:text-gray-900">Tiling</a>
+            <a href="/TheProjectToolbox/calculators/drywall.html" class="text-gray-600 hover:text-gray-900">Drywall</a>
+          </div>
+          <p class="text-gray-500 text-sm">© 2025 TheProjectToolbox. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
-  </section>
-</main>
 
-{% include footer.html %}
-
-<script>
-// Trade Filter Function
-function filterBubbles() {
-  const filter = document.getElementById('tradeFilter').value;
-  const bubbles = document.querySelectorAll('.bubble');
-
-  bubbles.forEach(bubble => {
-    if(filter === 'all' || bubble.dataset.trade === filter) {
-      bubble.style.display = 'inline-block';
-    } else {
-      bubble.style.display = 'none';
-    }
-  });
-}
-</script>
-
-</body>
+    <!-- Trade Filter JS -->
+    <script>
+      const filter = document.getElementById("tradeFilter");
+      filter.addEventListener("change", () => {
+        const selected = filter.value;
+        const bubbles = document.querySelectorAll(".calculator-bubble");
+        bubbles.forEach((bubble) => {
+          if (selected === "all" || bubble.dataset.trade === selected) {
+            bubble.style.display = "block";
+          } else {
+            bubble.style.display = "none";
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
