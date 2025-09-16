@@ -3,134 +3,130 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deck Board Calculator - TheProjectToolbox</title>
+  <title>Deck Board Calculator</title>
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-  <link rel="stylesheet" as="style" onload="this.rel='stylesheet'"
-    href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Work+Sans:wght@400;500;700;900" />
+  <link
+    rel="stylesheet"
+    as="style"
+    onload="this.rel='stylesheet'"
+    href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Work+Sans:wght@400;500;700;900"
+  />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 </head>
 <body class="bg-white font-sans">
-  <div class="flex flex-col min-h-screen overflow-x-hidden">
-
+  <div class="relative flex flex-col min-h-screen overflow-x-hidden">
     <!-- Header -->
     <header class="flex items-center justify-between border-b border-gray-200 px-10 py-3">
-      <div class="flex items-center gap-4">
-        <img src="/TheProjectToolbox/images/logo.png" alt="TheProjectToolbox Logo" class="h-12 w-auto" />
-        <h1 class="text-xl font-bold text-gray-900">Deck Board Calculator</h1>
+      <div class="flex items-center gap-4 text-gray-900">
+        <img src="/images/logo.png" alt="TheProjectToolbox Logo" class="h-12 w-auto" />
       </div>
-      <nav class="flex gap-6 text-gray-900 text-sm font-medium">
-        <a href="/TheProjectToolbox/">Home</a>
-        <a href="/TheProjectToolbox/#calculators">Calculators</a>
-      </nav>
+      <div class="flex flex-1 justify-end gap-8 items-center">
+        <nav class="flex gap-6 text-gray-900 text-sm font-medium">
+          <a href="/TheProjectToolbox/">Home</a>
+          <a href="/TheProjectToolbox/calculators/deck-board.html">Decking</a>
+          <a href="/TheProjectToolbox/calculators/flooring.html">Flooring</a>
+          <a href="/TheProjectToolbox/calculators/painting.html">Painting</a>
+          <a href="/TheProjectToolbox/calculators/tiling.html">Tiling</a>
+          <a href="/TheProjectToolbox/calculators/drywall.html">Drywall</a>
+        </nav>
+        <a href="#calculator" class="bg-blue-600 text-white font-bold px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+          Get Started
+        </a>
+      </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative flex items-center justify-center bg-cover bg-center min-h-[400px]"
-      style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('/TheProjectToolbox/images/hero.jpg');">
+    <section class="relative flex items-center justify-center bg-cover bg-center min-h-[480px]" style='background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url("/images/hero.jpg");'>
       <div class="text-center text-white px-6">
-        <h2 class="text-4xl font-black leading-tight mb-4">Deck Board Calculator</h2>
-        <p class="text-lg mb-6 max-w-2xl mx-auto">Quickly calculate the number of deck boards, screws, and materials needed for your decking project. Save time and avoid mistakes.</p>
+        <h1 class="text-4xl font-black leading-tight mb-4">Deck Board Calculator</h1>
+        <p class="text-base md:text-lg mb-6">Estimate deck boards, materials, and tools quickly and accurately for your next deck project.</p>
+        <a href="#calculator" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-bold transition">Get Started</a>
       </div>
     </section>
 
     <!-- Calculator Section -->
-    <section class="max-w-4xl mx-auto px-6 py-10">
-      <div class="bg-gray-50 p-8 rounded-xl shadow-md">
-        <h3 class="text-2xl font-bold mb-6 text-gray-900">Enter Your Deck Dimensions</h3>
-        <form id="deckForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <section id="calculator" class="max-w-5xl mx-auto px-6 py-10">
+      <div class="bg-gray-50 p-6 rounded-xl shadow-lg">
+        <h2 class="text-2xl font-bold mb-6 text-gray-900">Deck Board Calculator</h2>
 
-          <label class="flex flex-col">
-            <span class="text-gray-700 font-medium mb-2">Deck Length (ft)</span>
-            <input type="number" id="length" placeholder="Enter deck length" class="form-input rounded-lg border-gray-300 p-3" required>
-          </label>
-
-          <label class="flex flex-col">
-            <span class="text-gray-700 font-medium mb-2">Deck Width (ft)</span>
-            <input type="number" id="width" placeholder="Enter deck width" class="form-input rounded-lg border-gray-300 p-3" required>
-          </label>
-
-          <label class="flex flex-col">
-            <span class="text-gray-700 font-medium mb-2">Board Width (inches)</span>
-            <input type="number" id="boardWidth" placeholder="Typical 6 inches" class="form-input rounded-lg border-gray-300 p-3" value="6">
-          </label>
-
-          <label class="flex flex-col">
-            <span class="text-gray-700 font-medium mb-2">Board Length (ft)</span>
-            <input type="number" id="boardLength" placeholder="Typical 12 ft" class="form-input rounded-lg border-gray-300 p-3" value="12">
-          </label>
-
-          <label class="flex flex-col">
-            <span class="text-gray-700 font-medium mb-2">Gap Between Boards (inches)</span>
-            <input type="number" id="gap" placeholder="Typical 0.25" class="form-input rounded-lg border-gray-300 p-3" value="0.25">
-          </label>
-
-        </form>
-        <div class="mt-6 text-right">
-          <button id="calculateDeck" class="bg-blue-600 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 transition">Calculate</button>
-        </div>
-
-        <!-- Results -->
-        <div id="results" class="mt-10 hidden bg-white p-6 rounded-xl shadow-md">
-          <h3 class="text-xl font-bold mb-4 text-gray-900">Results</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-800">
-            <p><strong>Total Boards Needed:</strong> <span id="boardsNeeded">0</span></p>
-            <p><strong>Total Screws Needed:</strong> <span id="screwsNeeded">0</span></p>
-            <p><strong>Total Deck Area:</strong> <span id="deckArea">0</span> sq ft</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Suggested Tools & Materials -->
-      <div class="mt-10">
-        <h3 class="text-2xl font-bold mb-4 text-gray-900">Suggested Tools & Materials</h3>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-white p-4 rounded-lg shadow flex flex-col">
-            <img src="/TheProjectToolbox/images/decking.jpg" alt="Deck Boards" class="mb-4 rounded">
-            <h4 class="font-bold text-gray-900">Deck Boards</h4>
-            <p class="text-gray-700 text-sm">Pressure-treated 2x6 boards, 12 ft long.</p>
+          <div class="col-span-2 space-y-4">
+            <label class="flex flex-col">
+              <span class="text-gray-800 font-medium mb-2">Deck Length (ft)</span>
+              <input id="deck-length" type="number" placeholder="Enter length" class="form-input rounded-lg border-gray-300 h-12 p-3"/>
+            </label>
+            <label class="flex flex-col">
+              <span class="text-gray-800 font-medium mb-2">Deck Width (ft)</span>
+              <input id="deck-width" type="number" placeholder="Enter width" class="form-input rounded-lg border-gray-300 h-12 p-3"/>
+            </label>
+            <label class="flex flex-col">
+              <span class="text-gray-800 font-medium mb-2">Board Width (inches)</span>
+              <input id="board-width" type="number" placeholder="Standard 6" class="form-input rounded-lg border-gray-300 h-12 p-3"/>
+            </label>
+            <button id="calculate" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg mt-4">Calculate</button>
           </div>
-          <div class="bg-white p-4 rounded-lg shadow flex flex-col">
-            <img src="/TheProjectToolbox/images/screws.jpg" alt="Deck Screws" class="mb-4 rounded">
-            <h4 class="font-bold text-gray-900">Deck Screws</h4>
-            <p class="text-gray-700 text-sm">3 inch coated screws for outdoor use.</p>
-          </div>
-          <div class="bg-white p-4 rounded-lg shadow flex flex-col">
-            <img src="/TheProjectToolbox/images/tools.jpg" alt="Tools" class="mb-4 rounded">
-            <h4 class="font-bold text-gray-900">Tools</h4>
-            <p class="text-gray-700 text-sm">Cordless drill, tape measure, and saw.</p>
+          <div class="space-y-4">
+            <h3 class="text-xl font-semibold text-gray-900">Results</h3>
+            <div class="p-4 bg-white rounded-lg shadow">
+              <p>Total Boards Needed: <span id="total-boards">0</span></p>
+              <p>Total Deck Area: <span id="deck-area">0</span> sq ft</p>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mt-6">Suggested Tools & Materials</h3>
+            <div id="tools" class="space-y-4"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <footer class="bg-gray-100 py-8 mt-auto text-center">
-  <div class="max-w-5xl mx-auto px-6">
-    <p class="text-gray-500 text-sm">© 2025 TheProjectToolbox. All rights reserved.</p>
-    <p class="text-gray-400 text-xs mt-2">Disclaimer: All calculations are estimates only. Please verify measurements and materials before purchase or construction. TheProjectToolbox is not responsible for any errors or omissions.</p>
-  </div>
-</footer>
-
+    <!-- Footer -->
+    <footer class="bg-gray-100 mt-auto py-8">
+      <div class="max-w-5xl mx-auto px-6 text-center">
+        <div class="flex flex-wrap justify-center gap-4 mb-4">
+          <a href="/TheProjectToolbox/" class="text-gray-600 hover:text-gray-900">Home</a>
+          <a href="/TheProjectToolbox/calculators/deck-board.html" class="text-gray-600 hover:text-gray-900">Decking</a>
+          <a href="/TheProjectToolbox/calculators/flooring.html" class="text-gray-600 hover:text-gray-900">Flooring</a>
+          <a href="/TheProjectToolbox/calculators/painting.html" class="text-gray-600 hover:text-gray-900">Painting</a>
+          <a href="/TheProjectToolbox/calculators/tiling.html" class="text-gray-600 hover:text-gray-900">Tiling</a>
+          <a href="/TheProjectToolbox/calculators/drywall.html" class="text-gray-600 hover:text-gray-900">Drywall</a>
+        </div>
+        <p class="text-gray-500 text-sm">
+          © 2025 TheProjectToolbox. All numbers are estimates only. Always verify before purchase or construction.
+        </p>
+      </div>
+    </footer>
   </div>
 
   <script>
-    document.getElementById("calculateDeck").addEventListener("click", () => {
-      const length = parseFloat(document.getElementById("length").value) || 0;
-      const width = parseFloat(document.getElementById("width").value) || 0;
-      const boardWidth = parseFloat(document.getElementById("boardWidth").value) || 6;
-      const boardLength = parseFloat(document.getElementById("boardLength").value) || 12;
-      const gap = parseFloat(document.getElementById("gap").value) || 0.25;
-
+    // Deck calculation
+    document.getElementById('calculate').addEventListener('click', () => {
+      const length = parseFloat(document.getElementById('deck-length').value) || 0;
+      const width = parseFloat(document.getElementById('deck-width').value) || 0;
+      const boardWidthInches = parseFloat(document.getElementById('board-width').value) || 6;
       const totalArea = length * width;
-      const singleBoardCoverage = (boardWidth / 12 + gap / 12) * boardLength;
-      const boardsNeeded = Math.ceil(totalArea / singleBoardCoverage);
-      const screwsNeeded = boardsNeeded * (boardLength * 12 / 16) * 2; // 2 screws every 16"
+      const totalBoards = Math.ceil((totalArea * 12) / boardWidthInches);
+      document.getElementById('deck-area').innerText = totalArea.toFixed(2);
+      document.getElementById('total-boards').innerText = totalBoards;
+    });
 
-      document.getElementById("deckArea").textContent = totalArea.toFixed(2);
-      document.getElementById("boardsNeeded").textContent = boardsNeeded;
-      document.getElementById("screwsNeeded").textContent = Math.ceil(screwsNeeded);
+    // Fetch suggested tools & materials from Pexels
+    const toolsContainer = document.getElementById('tools');
+    const pexelsKey = 'H4RVsnqCcaCJoyjltGG0niEAoiJs9MIzCknGMKR34PP8vmjih1TRXpRH';
+    const queryTerms = ['deck boards', 'deck screws', 'deck tools'];
 
-      document.getElementById("results").classList.remove("hidden");
-      window.scrollTo({ top: document.getElementById("results").offsetTop - 20, behavior: "smooth" });
+    queryTerms.forEach(term => {
+      fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(term)}&per_page=1`, {
+        headers: { Authorization: pexelsKey }
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data.photos && data.photos.length > 0){
+          const img = document.createElement('img');
+          img.src = data.photos[0].src.medium;
+          img.alt = term;
+          img.className = "rounded-lg w-full h-40 object-cover shadow";
+          toolsContainer.appendChild(img);
+        }
+      });
     });
   </script>
 </body>
