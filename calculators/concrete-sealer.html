@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concrete Sealer Calculator</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link
+    rel="stylesheet"
+    as="style"
+    onload="this.rel='stylesheet'"
+    href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Work+Sans:wght@400;500;700;900"
+  />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+<body class="bg-white font-sans">
+  <div class="relative flex flex-col min-h-screen overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="w-full border-b border-gray-200 px-6 md:px-10">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo left -->
+        <a href="/TheProjectToolbox/" class="flex items-center gap-3">
+          <img src="/TheProjectToolbox/images/logo.png" alt="TheProjectToolbox logo" class="h-12 w-auto" />
+        </a>
+
+        <!-- Nav + Explore right -->
+        <div class="flex items-center gap-6">
+          <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+            <a href="/TheProjectToolbox/" class="hover:text-gray-700">Home</a>
+            <a href="/TheProjectToolbox/#calculators" class="hover:text-gray-700">Calculators</a>
+          </nav>
+
+          <a href="/TheProjectToolbox/#calculators" class="hidden md:inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition">
+            Explore
+          </a>
+
+          <!-- mobile nav button -->
+          <button id="mobileNavBtn" class="md:hidden px-2 py-1 rounded hover:bg-gray-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- simple mobile nav dropdown -->
+      <div id="mobileNav" class="md:hidden hidden border-t border-gray-100">
+        <div class="px-6 py-4 flex flex-col gap-3">
+          <a href="/TheProjectToolbox/">Home</a>
+          <a href="/TheProjectToolbox/#calculators">Calculators</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative flex items-center justify-center bg-cover bg-center min-h-[480px]" style='background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url("/TheProjectToolbox/images/hero.jpg");'>
+      <div class="text-center text-white px-6">
+        <h1 class="text-4xl font-black leading-tight mb-4">Concrete Sealer Calculator</h1>
+        <p class="text-base md:text-lg mb-6">Estimate how much sealer you’ll need for patios, driveways, or slabs based on coverage rates.</p>
+        <a href="#calculator" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-bold transition">Get Started</a>
+      </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="w-full bg-gray-50 py-12">
+      <div class="px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+          <!-- Calculator Form -->
+          <div class="space-y-4 bg-white p-8 rounded-lg shadow">
+            <label class="flex flex-col">
+              <span class="text-gray-800 font-medium mb-2">Length (ft)</span>
+              <input id="slab-length" type="number" placeholder="Enter length" class="form-input rounded-lg border-gray-300 h-12 p-3"/>
+            </label>
+            <label class="flex flex-col">
+              <span class="text-gray-800 font-medium mb-2">Width (ft)</span>
+              <input id="slab-width" type="number" placeholder="Enter width" class="form-input rounded-lg border-gray-300 h-12 p-3"/>
+            </label>
+            <label class="flex flex-col">
+              <span class="text-gray-800 font-medium mb-2">Coverage per Gallon (sq ft)</span>
+              <input id="coverage" type="number" value="300" class="form-input rounded-lg border-gray-300 h-12 p-3"/>
+            </label>
+            <label class="flex flex-col">
+              <span class="text-gray-800 font-medium mb-2">Number of Coats</span>
+              <input id="coats" type="number" value="1" class="form-input rounded-lg border-gray-300 h-12 p-3"/>
+            </label>
+            <button id="calculate" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg mt-4">Calculate</button>
+          </div>
+
+          <!-- Tools & Materials -->
+          <div class="bg-white p-8 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Suggested Tools</h3>
+            <ul class="list-disc list-inside text-gray-700 space-y-1">
+              <li>Measuring Tape</li>
+              <li>Paint Roller or Pump Sprayer</li>
+              <li>Extension Handle</li>
+              <li>Protective Gloves & Glasses</li>
+              <li>Pressure Washer (for prep)</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-4">Suggested Materials</h3>
+            <div class="bg-gray-50 rounded-lg p-6 space-y-2">
+              <p>Total Area: <span id="slab-area">0</span> sq ft</p>
+              <p>Adjusted Area (coats): <span id="adjusted-area">0</span> sq ft</p>
+              <p>Total Sealer Needed: <span id="sealer-gallons">0</span> gallons</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 mt-auto py-8">
+      <div class="max-w-5xl mx-auto px-6 text-center">
+        <div class="flex flex-wrap justify-center gap-4 mb-4">
+          <a href="/TheProjectToolbox/" class="text-gray-600 hover:text-gray-900">Home</a>
+          <a href="/TheProjectToolbox/calculators/deck-board.html" class="text-gray-600 hover:text-gray-900">Decking</a>
+          <a href="/TheProjectToolbox/calculators/flooring.html" class="text-gray-600 hover:text-gray-900">Flooring</a>
+          <a href="/TheProjectToolbox/calculators/painting.html" class="text-gray-600 hover:text-gray-900">Painting</a>
+          <a href="/TheProjectToolbox/calculators/tiling.html" class="text-gray-600 hover:text-gray-900">Tiling</a>
+          <a href="/TheProjectToolbox/calculators/drywall.html" class="text-gray-600 hover:text-gray-900">Drywall</a>
+        </div>
+        <p class="text-gray-500 text-sm">
+          © 2025 TheProjectToolbox. All numbers are estimates only. Always verify before purchase or construction.
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('calculate').addEventListener('click', () => {
+      const length = parseFloat(document.getElementById('slab-length').value) || 0;
+      const width = parseFloat(document.getElementById('slab-width').value) || 0;
+      const coverage = parseFloat(document.getElementById('coverage').value) || 300;
+      const coats = parseFloat(document.getElementById('coats').value) || 1;
+
+      const slabArea = length * width;
+      const adjustedArea = slabArea * coats;
+      const gallons = coverage > 0 ? Math.ceil(adjustedArea / coverage) : 0;
+
+      document.getElementById('slab-area').innerText = slabArea.toFixed(2);
+      document.getElementById('adjusted-area').innerText = adjustedArea.toFixed(2);
+      document.getElementById('sealer-gallons').innerText = gallons;
+    });
+
+    // Mobile nav toggle
+    const mobileBtn = document.getElementById('mobileNavBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    mobileBtn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+  </script>
+</body>
+</html>
