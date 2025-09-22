@@ -101,6 +101,12 @@
               <p>Total Water Demand: <span id="total-demand">0</span> gpm</p>
               <p>Recommended Pipe Diameter: <span id="pipe-diameter">0</span> inches</p>
             </div>
+
+            <!-- Safety Disclaimer -->
+            <div class="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700">
+              ⚠️ <strong>Safety Notice:</strong> Plumbing work can pose risks of flooding, contamination, and property damage.  
+              Always consult a licensed plumber before making changes. This calculator is for technical tradesmen use only and provides rough estimates, not a substitute for professional design or code compliance.
+            </div>
           </div>
 
         </div>
@@ -133,11 +139,10 @@
 
       const totalDemand = fixtures * flowRate;
 
-      // Very simplified pipe sizing guideline: 
-      // Assume ~8 gpm per 1-inch diameter for short runs, derate for length
+      // Very simplified pipe sizing guideline
       let diameter = totalDemand / 8;
       if (pipeLength > 50) {
-        diameter *= 1.2; // increase diameter for longer runs
+        diameter *= 1.2; // bump diameter for longer runs
       }
 
       document.getElementById('total-demand').innerText = totalDemand.toFixed(2);
