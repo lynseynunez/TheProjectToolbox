@@ -1,18 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Painting Calculator</title>
-<link href="/path-to-your-tailwind.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painting Calculator</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link
+    rel="stylesheet"
+    as="style"
+    onload="this.rel='stylesheet'"
+    href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Work+Sans:wght@400;500;700;900"
+  />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 </head>
 <body class="bg-white font-sans">
-<header class="px-6 py-4 border-b border-gray-200">
-  <a href="/" class="text-blue-600 font-bold">← Home</a>
-</header>
-<main class="max-w-3xl mx-auto p-6 text-center">
-  <h1 class="text-2xl font-bold mb-4">Painting Calculator</h1>
-  <p>This calculator page is under construction.</p>
-</main>
+  <div class="relative flex flex-col min-h-screen overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="w-full border-b border-gray-200">
+      <div class="max-w-6xl mx-auto px-6 md:px-10 flex items-center justify-between h-16">
+        <a href="/TheProjectToolbox/" class="flex items-center gap-3">
+          <img src="/TheProjectToolbox/images/logo.png" alt="TheProjectToolbox logo" class="h-12 w-auto" />
+        </a>
+
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+          <a href="/TheProjectToolbox/">Home</a>
+          <a href="/TheProjectToolbox/#calculators">Calculators</a>
+          <a href="/TheProjectToolbox/projects.html">Projects</a>
+          <a href="/TheProjectToolbox/resources.html">Resources</a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+          <a href="/TheProjectToolbox/#calculators" class="hidden md:inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Explore</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative flex items-center justify-center bg-cover bg-center min-h-[480px]" style='background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url("/TheProjectToolbox/images/hero.jpg");'>
+      <div class="text-center text-white px-6">
+        <h1 class="text-4xl font-black leading-tight mb-4">Painting Calculator</h1>
+        <p class="text-base md:text-lg mb-6">Estimate the paint needed for your walls by room size, doors, and windows.</p>
+        <a href="#calculator" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-bold transition">Get Started</a>
+      </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="w-full bg-gray-50 py-12">
+      <div class="px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+          <!-- Calculator Form -->
+          <div class="space-y-4 bg-white p-8 rounded-lg shadow">
+            <label class="flex flex-col">
+              <span class="text-gray-800 font-medium mb-2">Room Length (ft)</span>
+              <input id="room-length" type="number" placeholder="Enter length" class="form-input rounded-lg border-gray-300 h-12 p-3"/>
+            </label>
+            <label class="flex flex-col">
+              <span class="text-gray-800 font-medium mb-2">Room Width (ft)</span>
+              <input id="room-width" type="number" placeholder="Enter width" class="form-input rounded-lg border-gray-300 h-12 p-3"/>
+            </label>
+            <label class="flex flex-col">
+              <span class="text-gray-800 font-medium mb-2">Room Height (ft)</span>
+              <input id="room-height" type="number" placeholder="Enter height" class="form-input rounded-lg border-gray-300 h-12 p-3"/>
+            </label>
+            <label class="flex flex-col">
+              <span class="text-gray-800 font-medium mb-2">Doors</span>
+              <input id="doors" type="number" placeholder="Number of doors" class="form-input rounded-lg border-gray-300 h-12 p-3"/>
+            </label>
+            <label class="flex flex-col">
+              <span class="text-gray-800 font-medium mb-2">Windows</span>
+              <input id="windows" type="number" placeholder="Number of windows" class="form-input rounded-lg border-gray-300 h-12 p-3"/>
+            </label>
+            <label class="flex flex-col">
+              <span class="text-gray-800 font-medium mb-2">Coverage per Gallon (sq ft)</span>
+              <input id="coverage" type="number" value="350" class="form-input rounded-lg border-gray-300 h-12 p-3"/>
+            </label>
+            <button id="calculate" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg mt-4">Calculate</button>
+          </div>
+
+          <!-- Tools & Materials -->
+          <div class="bg-white p-8 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Suggested Tools</h3>
+            <ul class="list-disc list-inside text-gray-700 space-y-1">
+              <li>Paint Rollers & Brushes</li>
+              <li>Paint Tray</li>
+              <li>Painter’s Tape</li>
+              <li>Drop Cloths</li>
+              <li>Ladder</li>
+              <li>Safety Gear (Mask, Gloves)</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-4">Suggested Materials</h3>
+            <div class="bg-gray-50 rounded-lg p-6 space-y-2">
+              <p>Total Wall Area: <span id="wall-area">0</span> sq ft</p>
+              <p>Paintable Area: <span id="paintable-area">0</span> sq ft</p>
+              <p>Gallons Needed: <span id="gallons">0</span></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 mt-auto py-8">
+      <div class="max-w-5xl mx-auto px-6 text-center">
+        <div class="flex flex-wrap justify-center gap-4 mb-4">
+          <a href="/TheProjectToolbox/" class="text-gray-600 hover:text-gray-900">Home</a>
+          <a href="/TheProjectToolbox/calculators/deck-board.html" class="text-gray-600 hover:text-gray-900">Decking</a>
+          <a href="/TheProjectToolbox/calculators/flooring.html" class="text-gray-600 hover:text-gray-900">Flooring</a>
+          <a href="/TheProjectToolbox/calculators/painting.html" class="text-gray-600 hover:text-gray-900">Painting</a>
+          <a href="/TheProjectToolbox/calculators/tiling.html" class="text-gray-600 hover:text-gray-900">Tiling</a>
+          <a href="/TheProjectToolbox/calculators/drywall.html" class="text-gray-600 hover:text-gray-900">Drywall</a>
+        </div>
+        <p class="text-gray-500 text-sm">
+          © 2025 TheProjectToolbox. All numbers are estimates only. Always verify before purchase or construction.
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('calculate').addEventListener('click', () => {
+      const length = parseFloat(document.getElementById('room-length').value) || 0;
+      const width = parseFloat(document.getElementById('room-width').value) || 0;
+      const height = parseFloat(document.getElementById('room-height').value) || 0;
+      const doors = parseFloat(document.getElementById('doors').value) || 0;
+      const windows = parseFloat(document.getElementById('windows').value) || 0;
+      const coverage = parseFloat(document.getElementById('coverage').value) || 350;
+
+      const wallArea = 2 * height * (length + width); // perimeter x height
+      const doorArea = doors * 21;   // ~21 sq ft per door
+      const windowArea = windows * 15; // ~15 sq ft per window
+      const paintableArea = wallArea - doorArea - windowArea;
+
+      const gallons = Math.ceil(paintableArea / coverage);
+
+      document.getElementById('wall-area').innerText = wallArea.toFixed(2);
+      document.getElementById('paintable-area').innerText = paintableArea.toFixed(2);
+      document.getElementById('gallons').innerText = gallons;
+    });
+  </script>
 </body>
 </html>
