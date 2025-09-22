@@ -17,6 +17,7 @@
   <div class="min-h-screen flex flex-col">
 
     <!-- Header -->
+    <!-- Header -->
 <header class="w-full border-b border-gray-200 px-6 md:px-10">
   <div class="flex items-center justify-between h-16">
     <!-- Logo left -->
@@ -53,97 +54,117 @@
   </div>
 </header>
 
+
     <!-- Hero -->
-    <main class="flex-1">
-      <section class="relative bg-cover bg-center min-h-[320px]" style="background-image: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.38)), url('/TheProjectToolbox/images/hero.jpg');">
-        <div class="max-w-6xl mx-auto px-6 md:px-10 py-20 text-center">
-          <h1 class="text-white text-4xl md:text-5xl font-extrabold leading-tight mb-4">Your Project, Simplified</h1>
-          <p class="text-white text-base md:text-lg max-w-2xl mx-auto mb-6">Quick, accurate calculators and material suggestions for contractors and DIYers.</p>
-          <a href="#calculators" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold">Browse Calculators</a>
-        </div>
-      </section>
+    <section class="relative bg-cover bg-center min-h-[50vh]" style="background-image: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.38)), url('/TheProjectToolbox/images/hero.jpg');">
+      <div class="max-w-6xl mx-auto px-6 md:px-10 py-20 text-center">
+        <h1 class="text-white text-4xl md:text-5xl font-extrabold leading-tight mb-4">Your Project, Simplified</h1>
+        <p class="text-white text-base md:text-lg max-w-2xl mx-auto mb-6">Quick, accurate calculators and material suggestions for contractors and DIYers.</p>
+        <a href="#calculators" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold">Browse Calculators</a>
+      </div>
+    </section>
 
-      <!-- Calculator Search + List -->
-      <section id="calculators" class="max-w-6xl mx-auto px-6 md:px-10 py-12">
-        <h2 class="text-2xl font-bold mb-6">Find Your Calculator</h2>
+    <!-- Search Bar -->
+    <div class="max-w-3xl mx-auto px-6 mt-8 mb-10">
+      <div class="flex items-center bg-white/90 backdrop-blur-md rounded-full shadow-md overflow-hidden border border-gray-200">
+        <input 
+          id="search" 
+          type="text" 
+          placeholder="Search calculators" 
+          class="flex-1 px-6 py-3 bg-transparent text-gray-700 placeholder-gray-500 focus:outline-none"
+        />
+        <button 
+          class="bg-black text-white px-6 py-3 font-semibold hover:bg-gray-800 transition">
+          Search
+        </button>
+      </div>
+    </div>
 
-        <!-- Search bar -->
-        <div class="mb-8">
-          <input id="searchBar" type="text" placeholder="Search calculators..." class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600" />
-        </div>
+    <!-- Calculators List -->
+    <section id="calculators" class="max-w-6xl mx-auto px-6 md:px-10 py-12">
+      <h2 class="text-2xl font-bold mb-6">Popular Calculators</h2>
 
-        <!-- Multi-column layout -->
-        <div id="calculatorList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-sm">
-
-          <!-- Deck & Outdoor -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-sm">
+        
+        <!-- Left Column: Decking -->
+        <div class="space-y-6">
           <div>
-            <h3 class="font-semibold text-lg mb-3">Deck & Outdoor</h3>
-            <ul class="space-y-2">
-              <li><a href="/TheProjectToolbox/calculators/deck-board.html" class="hover:text-blue-600">Deck Board</a></li>
-              <li><a href="/TheProjectToolbox/calculators/deck-post.html" class="hover:text-blue-600">Deck Post</a></li>
-              <li><a href="/TheProjectToolbox/calculators/railing.html" class="hover:text-blue-600">Railing</a></li>
-              <li><a href="/TheProjectToolbox/calculators/stairs.html" class="hover:text-blue-600">Stairs</a></li>
-              <li><a href="/TheProjectToolbox/calculators/deck-stain.html" class="hover:text-blue-600">Deck Stain</a></li>
-              <li><a href="/TheProjectToolbox/calculators/fencing.html" class="hover:text-blue-600">Fencing</a></li>
-              <li><a href="/TheProjectToolbox/calculators/fence-stain.html" class="hover:text-blue-600">Fence Stain</a></li>
-              <li><a href="/TheProjectToolbox/calculators/siding-paint.html" class="hover:text-blue-600">Siding Paint</a></li>
-              <li><a href="/TheProjectToolbox/calculators/roofing.html" class="hover:text-blue-600">Roofing</a></li>
-              <li><a href="/TheProjectToolbox/calculators/concrete.html" class="hover:text-blue-600">Concrete</a></li>
-            </ul>
-          </div>
-
-          <!-- Flooring & Tiling -->
-          <div>
-            <h3 class="font-semibold text-lg mb-3">Flooring & Tiling</h3>
-            <ul class="space-y-2">
-              <li><a href="/TheProjectToolbox/calculators/flooring.html" class="hover:text-blue-600">Flooring</a></li>
-              <li><a href="/TheProjectToolbox/calculators/tile-waste.html" class="hover:text-blue-600">Tile Waste</a></li>
-              <li><a href="/TheProjectToolbox/calculators/tiling.html" class="hover:text-blue-600">Tiling Layout</a></li>
-              <li><a href="/TheProjectToolbox/calculators/pavers.html" class="hover:text-blue-600">Pavers</a></li>
-            </ul>
-          </div>
-
-          <!-- Painting & Finishing -->
-          <div>
-            <h3 class="font-semibold text-lg mb-3">Painting & Finishing</h3>
-            <ul class="space-y-2">
-              <li><a href="/TheProjectToolbox/calculators/painting.html" class="hover:text-blue-600">Painting</a></li>
-              <li><a href="/TheProjectToolbox/calculators/paint.html" class="hover:text-blue-600">Paint Coverage</a></li>
-              <li><a href="/TheProjectToolbox/calculators/stain.html" class="hover:text-blue-600">Wood Stain</a></li>
-            </ul>
-          </div>
-
-          <!-- General -->
-          <div>
-            <h3 class="font-semibold text-lg mb-3">General</h3>
-            <ul class="space-y-2">
-              <li><a href="/TheProjectToolbox/calculators/drywall.html" class="hover:text-blue-600">Drywall</a></li>
-              <li><a href="/TheProjectToolbox/calculators/insulation.html" class="hover:text-blue-600">Insulation</a></li>
-            </ul>
-          </div>
-
-          <!-- Systems -->
-          <div>
-            <h3 class="font-semibold text-lg mb-3">Systems</h3>
-            <ul class="space-y-2">
-              <li><a href="/TheProjectToolbox/calculators/lighting.html" class="hover:text-blue-600">Lighting</a></li>
-              <li><a href="/TheProjectToolbox/calculators/electrical.html" class="hover:text-blue-600">Electrical</a></li>
-              <li><a href="/TheProjectToolbox/calculators/plumbing.html" class="hover:text-blue-600">Plumbing</a></li>
+            <h3 class="font-semibold text-lg mb-2">Deck & Outdoor</h3>
+            <ul class="space-y-1">
+              <li><a href="/TheProjectToolbox/calculators/deck-board.html" class="hover:underline">Deck Board Calculator</a></li>
+              <li><a href="/TheProjectToolbox/calculators/deck-post.html" class="hover:underline">Deck Post Calculator</a></li>
+              <li><a href="/TheProjectToolbox/calculators/railing.html" class="hover:underline">Railing Calculator</a></li>
+              <li><a href="/TheProjectToolbox/calculators/stairs.html" class="hover:underline">Stairs Calculator</a></li>
+              <li><a href="/TheProjectToolbox/calculators/deck-stain.html" class="hover:underline">Deck Stain Calculator</a></li>
+              <li><a href="/TheProjectToolbox/calculators/fence.html" class="hover:underline">Fence Calculator</a></li>
+              <li><a href="/TheProjectToolbox/calculators/fence-stain.html" class="hover:underline">Fence Stain Calculator</a></li>
+              <li><a href="/TheProjectToolbox/calculators/pavers.html" class="hover:underline">Pavers Calculator</a></li>
             </ul>
           </div>
         </div>
-      </section>
-    </main>
+
+        <!-- Middle Column: Flooring + General -->
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold text-lg mb-2">Flooring & Tiling</h3>
+            <ul class="space-y-1">
+              <li><a href="/TheProjectToolbox/calculators/flooring.html" class="hover:underline">Flooring Calculator</a></li>
+              <li><a href="/TheProjectToolbox/calculators/tile-waste.html" class="hover:underline">Tile Waste Calculator</a></li>
+              <li><a href="/TheProjectToolbox/calculators/tiling.html" class="hover:underline">Tiling Layout Calculator</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-2">General</h3>
+            <ul class="space-y-1">
+              <li><a href="/TheProjectToolbox/calculators/drywall.html" class="hover:underline">Drywall Calculator</a></li>
+              <li><a href="/TheProjectToolbox/calculators/concrete.html" class="hover:underline">Concrete Calculator</a></li>
+              <li><a href="/TheProjectToolbox/calculators/insulation.html" class="hover:underline">Insulation Calculator</a></li>
+              <li><a href="/TheProjectToolbox/calculators/roofing.html" class="hover:underline">Roofing Calculator</a></li>
+              <li><a href="/TheProjectToolbox/calculators/siding-paint.html" class="hover:underline">Siding Paint Calculator</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right Column: Painting + Systems -->
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold text-lg mb-2">Painting & Finishing</h3>
+            <ul class="space-y-1">
+              <li><a href="/TheProjectToolbox/calculators/painting.html" class="hover:underline">Painting Calculator</a></li>
+              <li><a href="/TheProjectToolbox/calculators/paint.html" class="hover:underline">Paint Coverage Calculator</a></li>
+              <li><a href="/TheProjectToolbox/calculators/stain.html" class="hover:underline">Stain Calculator</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-2">Systems</h3>
+            <ul class="space-y-1">
+              <li><a href="/TheProjectToolbox/calculators/lighting.html" class="hover:underline">Lighting Calculator</a></li>
+              <li><a href="/TheProjectToolbox/calculators/plumbing.html" class="hover:underline">Plumbing Calculator</a></li>
+              <li><a href="/TheProjectToolbox/calculators/electrical.html" class="hover:underline">Electrical Calculator</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-gray-100 border-t border-gray-200">
       <div class="max-w-6xl mx-auto px-6 md:px-10 py-8 text-center">
+        <div class="flex flex-wrap justify-center gap-4 mb-4">
+          <a href="/TheProjectToolbox/" class="text-gray-600 hover:text-gray-900">Home</a>
+          <a href="/TheProjectToolbox/calculators/deck-board.html" class="text-gray-600 hover:text-gray-900">Decking</a>
+          <a href="/TheProjectToolbox/calculators/flooring.html" class="text-gray-600 hover:text-gray-900">Flooring</a>
+          <a href="/TheProjectToolbox/calculators/painting.html" class="text-gray-600 hover:text-gray-900">Painting</a>
+          <a href="/TheProjectToolbox/calculators/tiling.html" class="text-gray-600 hover:text-gray-900">Tiling</a>
+          <a href="/TheProjectToolbox/calculators/drywall.html" class="text-gray-600 hover:text-gray-900">Drywall</a>
+        </div>
         <p class="text-sm text-gray-500">© 2025 TheProjectToolbox. All calculations are estimates only — always verify measurements and materials before purchase or construction.</p>
-        <p class="text-xs text-gray-400 mt-2">⚠️ Electrical & Plumbing calculators are intended for technical tradesmen. Always work with a licensed professional for safety.</p>
       </div>
     </footer>
   </div>
 
+  <!-- Scripts -->
   <script>
     // Mobile nav toggle
     const mobileBtn = document.getElementById('mobileNavBtn');
@@ -151,13 +172,11 @@
     mobileBtn?.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
 
     // Search filter
-    const searchBar = document.getElementById('searchBar');
-    const calculatorList = document.getElementById('calculatorList');
-    searchBar.addEventListener('input', () => {
-      const query = searchBar.value.toLowerCase();
-      calculatorList.querySelectorAll("a").forEach(link => {
-        const text = link.textContent.toLowerCase();
-        link.parentElement.style.display = text.includes(query) ? "block" : "none";
+    const searchInput = document.getElementById('search');
+    searchInput.addEventListener('keyup', () => {
+      const term = searchInput.value.toLowerCase();
+      document.querySelectorAll('#calculators li').forEach(li => {
+        li.style.display = li.textContent.toLowerCase().includes(term) ? 'block' : 'none';
       });
     });
   </script>
