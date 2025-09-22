@@ -1,130 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Deck Post Calculator | TheProjectToolbox</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link
-      rel="stylesheet"
-      as="style"
-      onload="this.rel='stylesheet'"
-      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans:wght@400;500;700;900&amp;family=Work+Sans:wght@400;500;700;900"
-    />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  </head>
-  <body class="bg-white font-sans">
-    <div class="relative flex flex-col min-h-screen overflow-x-hidden">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deck Post Calculator</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link
+    rel="stylesheet"
+    as="style"
+    onload="this.rel='stylesheet'"
+    href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Work+Sans:wght@400;500;700;900"
+  />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+<body class="bg-white font-sans">
+  <div class="relative flex flex-col min-h-screen overflow-x-hidden">
 
-      <!-- Header -->
-      <header class="flex items-center justify-between border-b border-gray-200 px-10 py-3">
-        <div class="flex items-center gap-4 text-gray-900">
-          <img src="/TheProjectToolbox/images/logo.png" alt="TheProjectToolbox Logo" class="h-12 w-auto" />
-        </div>
-        <div class="flex flex-1 justify-end gap-8 items-center">
-          <nav class="flex gap-6 text-gray-900 text-sm font-medium">
-            <a href="/TheProjectToolbox/">Home</a>
-            <a href="/TheProjectToolbox/calculators/deck-board.html">Decking</a>
-            <a href="/TheProjectToolbox/calculators/flooring.html">Flooring</a>
-            <a href="/TheProjectToolbox/calculators/painting.html">Painting</a>
-            <a href="/TheProjectToolbox/calculators/tiling.html">Tiling</a>
-            <a href="/TheProjectToolbox/calculators/drywall.html">Drywall</a>
+    <!-- Header -->
+    <header class="w-full border-b border-gray-200 px-6 md:px-10">
+      <div class="flex items-center justify-between h-16">
+        <a href="/TheProjectToolbox/" class="flex items-center gap-3">
+          <img src="/TheProjectToolbox/images/logo.png" alt="TheProjectToolbox logo" class="h-12 w-auto" />
+        </a>
+
+        <div class="flex items-center gap-6">
+          <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+            <a href="/TheProjectToolbox/" class="hover:text-gray-700">Home</a>
+            <a href="/TheProjectToolbox/#calculators" class="hover:text-gray-700">Calculators</a>
           </nav>
+
+          <a href="/TheProjectToolbox/#calculators" class="hidden md:inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition">
+            Explore
+          </a>
+
+          <button id="mobileNavBtn" class="md:hidden px-2 py-1 rounded hover:bg-gray-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
         </div>
-      </header>
+      </div>
 
-      <!-- Hero Section -->
-      <section class="relative flex items-center justify-center bg-cover bg-center min-h-[480px]" style='background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url("/TheProjectToolbox/images/hero.jpg");'>
-        <div class="text-center text-white px-6">
-          <h1 class="text-4xl font-black leading-tight mb-4">Deck Post Calculator</h1>
-          <p class="text-base md:text-lg mb-6">Easily estimate materials and tools needed for deck posts.</p>
+      <div id="mobileNav" class="md:hidden hidden border-t border-gray-100">
+        <div class="px-6 py-4 flex flex-col gap-3">
+          <a href="/TheProjectToolbox/">Home</a>
+          <a href="/TheProjectToolbox/#calculators">Calculators</a>
         </div>
-      </section>
+      </div>
+    </header>
 
-      <!-- Calculator Section -->
-      <section class="max-w-5xl mx-auto px-6 py-10">
-        <div class="bg-white shadow-lg rounded-xl p-6">
-          <h2 class="text-2xl font-bold mb-6">Calculate Your Deck Posts</h2>
+    <!-- Hero Section -->
+    <section class="relative flex items-center justify-center bg-cover bg-center min-h-[480px]" style='background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url("/TheProjectToolbox/images/deck-post.jpg");'>
+      <div class="text-center text-white px-6">
+        <h1 class="text-4xl font-black leading-tight mb-4">Deck Post Calculator</h1>
+        <p class="text-base md:text-lg mb-6">Quickly calculate how many posts you need for your deck based on spacing and deck size.</p>
+        <a href="#calculator" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-bold transition">Get Started</a>
+      </div>
+    </section>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            <div class="flex flex-col">
-              <label class="mb-2 font-medium text-gray-700">Deck Length (ft)</label>
-              <input type="number" id="deckLength" class="form-input rounded-lg border border-gray-300 p-3" placeholder="Enter length" />
-            </div>
-            <div class="flex flex-col">
-              <label class="mb-2 font-medium text-gray-700">Deck Width (ft)</label>
-              <input type="number" id="deckWidth" class="form-input rounded-lg border border-gray-300 p-3" placeholder="Enter width" />
-            </div>
-            <div class="flex flex-col">
-              <label class="mb-2 font-medium text-gray-700">Post Spacing (ft)</label>
-              <input type="number" id="postSpacing" class="form-input rounded-lg border border-gray-300 p-3" placeholder="Typical 6-8 ft" />
-            </div>
+    <!-- Calculator Section -->
+    <section id="calculator" class="w-full bg-gray-50 py-12">
+      <div class="px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          
+          <!-- Calculator Form -->
+          <div class="space-y-4 bg-white p-8 rounded-lg shadow">
+            <label class="flex flex-col">
+              <span class="text-gray-800 font-medium mb-2">Deck Length (ft)</span>
+              <input id="deck-length" type="number" placeholder="Enter length" class="form-input rounded-lg border-gray-300 h-12 p-3"/>
+            </label>
+            <label class="flex flex-col">
+              <span class="text-gray-800 font-medium mb-2">Deck Width (ft)</span>
+              <input id="deck-width" type="number" placeholder="Enter width" class="form-input rounded-lg border-gray-300 h-12 p-3"/>
+            </label>
+            <label class="flex flex-col">
+              <span class="text-gray-800 font-medium mb-2">Post Spacing (ft)</span>
+              <input id="post-spacing" type="number" placeholder="Standard 8" class="form-input rounded-lg border-gray-300 h-12 p-3"/>
+            </label>
+            <button id="calculate" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg mt-4">Calculate</button>
           </div>
 
-          <div class="flex justify-end">
-            <button onclick="calculatePosts()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg">Calculate</button>
-          </div>
+          <!-- Tools & Materials -->
+          <div class="bg-white p-8 rounded-lg shadow">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Suggested Tools</h3>
+            <ul class="list-disc list-inside text-gray-700 space-y-1">
+              <li>Measuring Tape</li>
+              <li>Post Hole Digger / Auger</li>
+              <li>Level</li>
+              <li>Shovel</li>
+              <li>Concrete Mixer or Wheelbarrow</li>
+              <li>Safety Gear (Gloves & Glasses)</li>
+            </ul>
 
-          <div class="mt-6 border-t border-gray-200 pt-6">
-            <h3 class="text-xl font-bold mb-3">Results</h3>
-            <p id="results" class="text-gray-800">Enter dimensions and click calculate.</p>
-          </div>
-
-          <!-- Suggested Tools & Materials -->
-          <div class="mt-8 border-t border-gray-200 pt-6">
-            <h3 class="text-xl font-bold mb-4">Suggested Tools & Materials</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div class="bg-gray-50 rounded-lg p-4 flex flex-col items-center">
-                <img src="/TheProjectToolbox/images/wood-post.jpg" alt="Wood Post" class="w-full h-32 object-cover rounded-md mb-2"/>
-                <p class="font-medium">Pressure-Treated Wood Post</p>
-                <p class="text-gray-600 text-sm">4x4 ft, suitable for deck posts</p>
-              </div>
-              <div class="bg-gray-50 rounded-lg p-4 flex flex-col items-center">
-                <img src="/TheProjectToolbox/images/concrete.jpg" alt="Concrete" class="w-full h-32 object-cover rounded-md mb-2"/>
-                <p class="font-medium">Concrete Mix</p>
-                <p class="text-gray-600 text-sm">For securing posts in ground</p>
-              </div>
-              <div class="bg-gray-50 rounded-lg p-4 flex flex-col items-center">
-                <img src="/TheProjectToolbox/images/screws.jpg" alt="Screws" class="w-full h-32 object-cover rounded-md mb-2"/>
-                <p class="font-medium">Deck Screws</p>
-                <p class="text-gray-600 text-sm">3-inch exterior-grade screws</p>
-              </div>
+            <h3 class="text-xl font-semibold text-gray-900 mt-6 mb-4">Suggested Materials</h3>
+            <div class="bg-gray-50 rounded-lg p-6 space-y-2">
+              <p>Total Deck Area: <span id="deck-area">0</span> sq ft</p>
+              <p>Total Posts Needed: <span id="total-posts">0</span></p>
+              <p>Concrete Bags (approx): <span id="concrete-bags">0</span></p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Footer -->
-      <footer class="bg-gray-100 mt-auto py-8">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-          <div class="flex flex-wrap justify-center gap-4 mb-4">
-            <a href="/TheProjectToolbox/" class="text-gray-600 hover:text-gray-900">Home</a>
-            <a href="/TheProjectToolbox/calculators/deck-board.html" class="text-gray-600 hover:text-gray-900">Decking</a>
-            <a href="/TheProjectToolbox/calculators/deck-post.html" class="text-gray-600 hover:text-gray-900">Deck Posts</a>
-          </div>
-          <p class="text-gray-500 text-sm">
-            © 2025 TheProjectToolbox. All numbers are estimates only; always verify materials before purchasing.
-          </p>
+    <!-- Footer -->
+    <footer class="bg-gray-100 mt-auto py-8">
+      <div class="max-w-5xl mx-auto px-6 text-center">
+        <div class="flex flex-wrap justify-center gap-4 mb-4">
+          <a href="/TheProjectToolbox/" class="text-gray-600 hover:text-gray-900">Home</a>
+          <a href="/TheProjectToolbox/calculators/deck-board.html" class="text-gray-600 hover:text-gray-900">Decking</a>
+          <a href="/TheProjectToolbox/calculators/flooring.html" class="text-gray-600 hover:text-gray-900">Flooring</a>
+          <a href="/TheProjectToolbox/calculators/painting.html" class="text-gray-600 hover:text-gray-900">Painting</a>
+          <a href="/TheProjectToolbox/calculators/tiling.html" class="text-gray-600 hover:text-gray-900">Tiling</a>
+          <a href="/TheProjectToolbox/calculators/drywall.html" class="text-gray-600 hover:text-gray-900">Drywall</a>
         </div>
-      </footer>
+        <p class="text-gray-500 text-sm">
+          © 2025 TheProjectToolbox. All numbers are estimates only. Always verify before purchase or construction.
+        </p>
+      </div>
+    </footer>
+  </div>
 
-    </div>
+  <script>
+    // Deck post calculation
+    document.getElementById('calculate').addEventListener('click', () => {
+      const length = parseFloat(document.getElementById('deck-length').value) || 0;
+      const width = parseFloat(document.getElementById('deck-width').value) || 0;
+      const spacing = parseFloat(document.getElementById('post-spacing').value) || 8;
 
-    <script>
-      function calculatePosts() {
-        const length = parseFloat(document.getElementById("deckLength").value);
-        const width = parseFloat(document.getElementById("deckWidth").value);
-        const spacing = parseFloat(document.getElementById("postSpacing").value);
+      const totalArea = length * width;
+      const postsLength = Math.floor(length / spacing) + 1;
+      const postsWidth = Math.floor(width / spacing) + 1;
+      const totalPosts = postsLength * postsWidth;
 
-        if (isNaN(length) || isNaN(width) || isNaN(spacing) || spacing <= 0) {
-          document.getElementById("results").innerText = "Please enter valid numbers.";
-          return;
-        }
+      const concreteBags = totalPosts * 2; // assume 2 bags per post
 
-        const perimeter = 2 * (length + width);
-        const posts = Math.ceil(perimeter / spacing);
-        document.getElementById("results").innerText = `Estimated Posts Needed: ${posts}`;
-      }
-    </script>
-  </body>
+      document.getElementById('deck-area').innerText = totalArea.toFixed(2);
+      document.getElementById('total-posts').innerText = totalPosts;
+      document.getElementById('concrete-bags').innerText = concreteBags;
+    });
+  </script>
+</body>
 </html>
