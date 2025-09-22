@@ -80,7 +80,11 @@
 
           <!-- Deck & Outdoor -->
           <div>
-            <h3 class="text-lg font-semibold mb-4">Deck & Outdoor</h3>
+            <div class="relative h-32 rounded-lg overflow-hidden shadow mb-4">
+              <img src="/TheProjectToolbox/images/deck-category.jpg" alt="Deck & Outdoor" class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+              <h3 class="absolute inset-0 flex items-center justify-center text-white text-xl font-semibold">Deck & Outdoor</h3>
+            </div>
             <ul class="space-y-2">
               <li><a href="/TheProjectToolbox/calculators/deck-board.html" class="hover:underline">Deck Board</a></li>
               <li><a href="/TheProjectToolbox/calculators/deck-post.html" class="hover:underline">Deck Post</a></li>
@@ -94,14 +98,22 @@
 
           <!-- Flooring & Tiling + General -->
           <div>
-            <h3 class="text-lg font-semibold mb-4">Flooring & Tiling</h3>
+            <div class="relative h-32 rounded-lg overflow-hidden shadow mb-4">
+              <img src="/TheProjectToolbox/images/flooring-category.jpg" alt="Flooring & Tiling" class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+              <h3 class="absolute inset-0 flex items-center justify-center text-white text-xl font-semibold">Flooring & Tiling</h3>
+            </div>
             <ul class="space-y-2 mb-6">
               <li><a href="/TheProjectToolbox/calculators/flooring.html" class="hover:underline">Flooring</a></li>
               <li><a href="/TheProjectToolbox/calculators/tile-waste.html" class="hover:underline">Tile Waste</a></li>
               <li><a href="/TheProjectToolbox/calculators/tiling.html" class="hover:underline">Tiling Layout</a></li>
             </ul>
 
-            <h3 class="text-lg font-semibold mb-4">General</h3>
+            <div class="relative h-32 rounded-lg overflow-hidden shadow mb-4">
+              <img src="/TheProjectToolbox/images/general-category.jpg" alt="General" class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+              <h3 class="absolute inset-0 flex items-center justify-center text-white text-xl font-semibold">General</h3>
+            </div>
             <ul class="space-y-2">
               <li><a href="/TheProjectToolbox/calculators/drywall.html" class="hover:underline">Drywall</a></li>
               <li><a href="/TheProjectToolbox/calculators/concrete.html" class="hover:underline">Concrete</a></li>
@@ -114,14 +126,22 @@
 
           <!-- Painting & Finishing + Systems -->
           <div>
-            <h3 class="text-lg font-semibold mb-4">Painting & Finishing</h3>
+            <div class="relative h-32 rounded-lg overflow-hidden shadow mb-4">
+              <img src="/TheProjectToolbox/images/painting-category.jpg" alt="Painting & Finishing" class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+              <h3 class="absolute inset-0 flex items-center justify-center text-white text-xl font-semibold">Painting & Finishing</h3>
+            </div>
             <ul class="space-y-2 mb-6">
               <li><a href="/TheProjectToolbox/calculators/painting.html" class="hover:underline">Painting</a></li>
               <li><a href="/TheProjectToolbox/calculators/paint.html" class="hover:underline">Paint Coverage</a></li>
               <li><a href="/TheProjectToolbox/calculators/stain.html" class="hover:underline">Stain</a></li>
             </ul>
 
-            <h3 class="text-lg font-semibold mb-4">Systems</h3>
+            <div class="relative h-32 rounded-lg overflow-hidden shadow mb-4">
+              <img src="/TheProjectToolbox/images/systems-category.jpg" alt="Systems" class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+              <h3 class="absolute inset-0 flex items-center justify-center text-white text-xl font-semibold">Systems</h3>
+            </div>
             <ul class="space-y-2">
               <li><a href="/TheProjectToolbox/calculators/lighting.html" class="hover:underline">Lighting</a></li>
               <li><a href="/TheProjectToolbox/calculators/plumbing.html" class="hover:underline">Plumbing</a></li>
@@ -170,7 +190,6 @@
             li.style.display = 'none';
           }
         });
-        // hide/show the parent block (h3 + ul container)
         const container = ul.closest('div');
         if (container) {
           container.style.display = hasVisible ? 'block' : 'none';
